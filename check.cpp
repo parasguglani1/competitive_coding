@@ -1,40 +1,30 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
 using namespace std;
 
-int main(){
-    int t;
-    cin >> t;
-    while(t--){
-
-       int n, x, k,count=0;
-        cin >> n >> x >> k;
-        int A[n];
-        for(int i=0;i<n;i++)
-        {
-            cin >> A[i];
-        }
-        int B[n];
-        for(int i=0;i<n;i++)
-        {
-            cin >> B[i];
-        }
-        
-        for(int i=0;i<n;i++)
-        {
-            if (abs(A[i] - B[i]) <= k)
-            {
-                count++;
-            }
-        }
-        if (count >= x)
-        {
-            cout << "YES" << endl;
-        }
-        else
-        {
-            cout << "NO" << endl;
-        }
-    }
-        
+int main() {
+  // your code goes here
+  long long t;
+  cin>>t;
+  while(t--)
+  {
+      int n;
+      cin>>n;
+      if(n%2!=0)
+      {
+          cout<<-1<<endl;
+      }
+      else
+      {
+          for(int i=1;i<=n/2;i++)
+          {
+              cout<<0;
+          }
+          for(int i=(n/2)+1;i<=n;i++)
+          {
+              cout<<1;
+          }
+          cout<<endl;
+      }
+  }
+  return 0;
 }
