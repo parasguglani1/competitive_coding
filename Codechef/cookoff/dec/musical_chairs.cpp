@@ -23,14 +23,7 @@ using ll = long long;
 #define mp              make_pair
 #define pii             pair<int,int>
 #define vi              vector<int>
-void psolve()
-{
-      int i, j, n, m;
-    
-}
-
-int32_t main()
-
+void paras()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -40,12 +33,30 @@ int32_t main()
     freopen("D:\\Programming\\ds\\competitive_coding\\input.txt", "r", stdin);
     freopen("D:\\Programming\\ds\\competitive_coding\\output.txt", "w", stdout);
 #endif
+}
 
-   
-    w(t){
-      psolve();
+int32_t main()
+
+{
+    paras();
+    w(t)
+    {
+      int n;
+      cin >> n;
+      n -= 1;
+      int cnt = 0;
+      for (auto i = 1; i * i < n; i++)
+      {
+         if (n % i == 0)
+            cnt += 2;
+      }
+      if (pow((int)sqrt(n), 2) == n)
+      {
+         cnt += 1;
+      }
+      cout << cnt << endl;
+
+        
     }
-
-  
     return 0;
 }
