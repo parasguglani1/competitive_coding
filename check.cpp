@@ -1,30 +1,26 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 
 int main() {
-  // your code goes here
-  long long t;
-  cin>>t;
-  while(t--)
-  {
-      int n;
-      cin>>n;
-      if(n%2!=0)
-      {
-          cout<<-1<<endl;
-      }
-      else
-      {
-          for(int i=1;i<=n/2;i++)
-          {
-              cout<<0;
-          }
-          for(int i=(n/2)+1;i<=n;i++)
-          {
-              cout<<1;
-          }
-          cout<<endl;
-      }
-  }
-  return 0;
+	
+	int t;
+	cin>>t;
+	while(t--){
+	    int n;
+        cin>>n;
+	    int arr[n];
+	    for(int i=0;i<n;i++){
+	        cin>>arr[i];
+	    }
+	    
+	  sort(arr,arr+n);
+
+	  int sum=0;
+	  for(int i=1;i<n;i++){
+	        sum= sum + arr[i];
+	    }
+	   cout<<sum<<endl; 
+	}
+	return 0;
 }
