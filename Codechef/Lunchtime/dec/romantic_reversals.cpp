@@ -23,50 +23,40 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
-
-bool isvowel(char c)
-{
-    if (c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u')
-    {
-        return true;
-    }
-    return false;
-}
-
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    string s1, s2;
-    cin >> s1 >> s2;
-    int ans = INT_MAX;
-    rep(i,26)
+    int n, k;
+    cin >> n >> k;
+
+    string s;
+    cin >> s;
+
+    int l = 0, r = k - 1;
+    int idx = 1;
+
+    string ans;
+
+    while (l <= r)
     {
-        int temp_cost = 0;
-        char ch = i + 'a';
-        rep(j,n)
-        
+        if (idx % 2)
         {
-            char c1 = (s1[j] == '?') ? ch : s1[j];
-            char c2 = (s2[j] == '?') ? ch : s2[j];
-            if (c1 != c2)
-            {
-                if (isvowel(c1) && isvowel(c2))
-                {
-                    temp_cost += 2;
-                }
-                else if (isvowel(c1) == false && isvowel(c2) == false)
-                {
-                    temp_cost += 2;
-                }
-                else
-                {
-                    temp_cost++;
-                }
-            }
+            ans.pb(s[l++]);
         }
-        ans = min(ans, temp_cost);
+        else
+        {
+            ans.pb(s[r--]);
+        }
+        idx ^= 1;
     }
+
+    reverse(ans.begin(), ans.end());
+
+REP(i, k, n - 1)
+    
+    {
+        ans.pb(s[i]);
+    }
+
     cout << ans << endl;
 }
 

@@ -4,6 +4,7 @@ using namespace std;
 #define ff first
 #define ss second
 #define int long long
+using ll = long long;
 #define setbits(x) __builtin_popcountll(x)
 #define zrobits(x) __builtin_ctzll(x)
 #define mod 1000000007
@@ -18,52 +19,44 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < n; ++i)
 #define REP(i, k, n) for (int i = k; i <= n; ++i)
 #define REPR(i, k, n) for (int i = k; i >= n; --i)
-void paras()
+#define pb push_back
+#define mp make_pair
+#define pii pair<int, int>
+#define vi vector<int>
+void pgsolve()
 {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-#ifndef ONLINE_JUDGE
-    freopen("D:\\Programming\\ds\\Codechef\\input.txt", "r", stdin);
-    freopen("D:\\Programming\\ds\\Codechef\\output.txt", "w", stdout);
-#endif
+    int a, b, c;
+    cin >> a >> b >> c;
+    if ((a + b) == c)
+    {
+        cout << "EQUAL" << endl;
+    }
+    else if ((a + b) > c)
+    {
+        cout << "TRAIN" << endl;
+    }
+    else
+    {
+        cout << "PLANEBUS" << endl;
+    }
 }
 
 int32_t main()
 
 {
-    paras();
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+#ifndef ONLINE_JUDGE
+    freopen("D:\\Programming\\ds\\competitive_coding\\input.txt", "r", stdin);
+    freopen("D:\\Programming\\ds\\competitive_coding\\output.txt", "w", stdout);
+#endif
+
     w(t)
     {
-        int N,dir=2;
-        cin>>N;
-        string str;
-        cin>>str;
-        rep(i,N)
-        {
-            if(str[i]=='L')
-            {
-                dir--;
-
-            }
-              if(str[i]=='R')
-            {
-                dir++;
-
-            }
-        }
-      if (dir%4==0)
-      {
-          cout<<"yes\n";
-
-      }
-      else
-      {
-          cout<<"No\n";
-      }
-
-
-        
+        pgsolve();
     }
+
     return 0;
 }

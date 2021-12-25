@@ -1,26 +1,30 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
 
 int main() {
-	
-	int t;
-	cin>>t;
-	while(t--){
-	    int n;
-        cin>>n;
-	    int arr[n];
-	    for(int i=0;i<n;i++){
-	        cin>>arr[i];
-	    }
-	    
-	  sort(arr,arr+n);
-
-	  int sum=0;
-	  for(int i=1;i<n;i++){
-	        sum= sum + arr[i];
-	    }
-	   cout<<sum<<endl; 
+	int n;
+    
+    string s;
+    cin>>s;
+    int count=0;
+    int counts=0;
+    
+    for(int i=0;i<n;i++){
+        if(s[i] == '0'){
+            count++;
+        }
+        else{
+            counts++;
+        }
+    }
+	 
+	if(count>counts){
+	    cout<<--counts<<endl;
+	}  
+	else{
+	   cout<<--count<<endl; 
 	}
+	
+	
 	return 0;
 }
