@@ -26,7 +26,19 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+        int n;
+        cin >> n;
+        vi arr(n);
+        int i;
+        rep(i, n)
+            cin >> arr[i];
+        cout << arr[0]; 
+      
+        REP(i,1,n){
+            arr[i] = arr[i]*((arr[i-1] + arr[i] - 1)/arr[i]);
+            cout << " " << arr[i];
+        }
+        cout << '\n';
 }
 
 int32_t main()
