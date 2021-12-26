@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using namespace chrono;
 
 #define ff first
 #define ss second
@@ -19,15 +20,13 @@ using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; ++i)
 #define REP(i, k, n) for (int i = k; i <= n; ++i)
 #define REPR(i, k, n) for (int i = k; i >= n; --i)
-#define pb              push_back
-#define mp              make_pair
-#define pii             pair<int,int>
-#define vi              vector<int>
+#define pb push_back
+#define mp make_pair
+#define pii pair<int, int>
+#define vi vector<int>
 void pgsolve()
 {
-      int i, j, n, m;
-      
-    
+    int i, j, n, m;
 }
 
 int32_t main()
@@ -36,17 +35,21 @@ int32_t main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
+    auto start1 = high_resolution_clock::now();
 
 #ifndef ONLINE_JUDGE
     freopen("D:\\Programming\\ds\\competitive_coding\\input.txt", "r", stdin);
     freopen("D:\\Programming\\ds\\competitive_coding\\output.txt", "w", stdout);
 #endif
 
-   
-    w(t){
-      pgsolve();
+    w(t)
+    {
+        pgsolve();
     }
-
-  
+    auto stop1 = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop1 - start1);
+#ifndef ONLINE_JUDGE
+    cout << "\n Time: " << duration.count() / 1000 << " ms" << endl;
+#endif
     return 0;
 }
