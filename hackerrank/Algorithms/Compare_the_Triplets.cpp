@@ -26,7 +26,31 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    int i, j, n, m,alice=0,bob=0;
+    int a[3], b[3];
+    rep(i, 3)
+    {
+        cin >> a[i];
+    }
+    rep(i, 3)
+    {
+        cin >> b[i];
+    }
+    rep(i, 3)
+    {
+        if (a[i] > b[i])
+        {
+           alice++;
+          
+        }
+        else if (a[i] < b[i])
+        {
+          bob++;
+          
+        }
+    }
+    cout << alice << " " << bob << endl;
+
 }
 
 int32_t main()
@@ -37,19 +61,18 @@ int32_t main()
     cout.tie(0);
     auto start1 = high_resolution_clock::now();
 
-#ifndef ONLINE_JUDGE
-    freopen("D:\\Programming\\ds\\competitive_coding\\input.txt", "r", stdin);
-    freopen("D:\\Programming\\ds\\competitive_coding\\output.txt", "w", stdout);
+#ifdef _WIN32
+	freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
+    // w(t)
+    // {
         pgsolve();
-    }
+    // }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifndef ONLINE_JUDGE
-    cout << "\n Time: " << duration.count() / 1000 << " ms" << endl;
+#ifdef _WIN32 
+    cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;
 }

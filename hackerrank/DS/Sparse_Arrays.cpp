@@ -26,7 +26,40 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    int i, j, n1, n2;
+    cin >> n1 ;
+    vector<string> a(n1);
+    rep(i, n1)
+    {
+        cin >> a[i];
+    }
+    cin>> n2;
+    vector<string> b(n2);
+    rep(i, n2)
+    {
+        cin >> b[i];
+    }
+    vi result(n2);
+
+    rep(i, n2)
+    {
+        int count=0;
+        rep(j, n1)
+        {
+           if (b[i]==a[j])
+        {
+            count++;
+
+        }
+        result[i]=count;
+        }
+    }
+    rep(i, n2)
+    {
+        cout << result[i] << endl;
+    }
+
+
 }
 
 int32_t main()

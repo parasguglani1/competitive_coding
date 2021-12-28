@@ -26,7 +26,31 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    // int rightrotateby;
+    int i, j, n, leftrotateby ;
+    cin >> n >> leftrotateby;
+    vi a(n);
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+    vi b(n);
+    // rep(i, n)
+    // {
+    //     b[(i + rightrotateby) % n] = a[i];
+    // }
+    
+    rep(i, n)
+    {
+        b[i] = a[(i + leftrotateby) % n];
+	
+    }
+	
+    rep(i, n)
+    {
+        cout << b[i] << " ";
+    }
+
 }
 
 int32_t main()
@@ -42,10 +66,9 @@ int32_t main()
     freopen("D:\\Programming\\ds\\competitive_coding\\output.txt", "w", stdout);
 #endif
 
-    w(t)
-    {
+  
         pgsolve();
-    }
+   
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifndef ONLINE_JUDGE
