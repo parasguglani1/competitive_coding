@@ -28,6 +28,10 @@ using ll = long long;
 void pgsolve()
 {
     int i, j, n, m;
+    int z,y,a,b,c;
+    cin>>z>>y>>a>>b>>c;
+    
+
 }
 
 int32_t main()

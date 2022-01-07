@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 using namespace chrono;
-
+// can be done in O n
+// https://www.hackerrank.com/challenges/divisible-sum-pairs/forum
 #define ff first
 #define ss second
 #define int long long
@@ -27,7 +28,28 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+
+    int n,k;
+    cin>>n>>k;
+    vi a(n);
+    rep(i,n)
+    {
+        cin>>a[i];
+    }
+    // sortall(a);
+    int count=0;
+    rep(i,n)
+    {
+        REP(j,i+1,n)
+        {
+            if((a[i]+a[j])%k==0)
+            {
+                count++;
+            }
+        }
+    }  
+    cout<<count<<endl;
+
 }
 
 int32_t main()
@@ -42,10 +64,9 @@ int32_t main()
 	freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
+    
         pgsolve();
-    }
+    
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef _WIN32 

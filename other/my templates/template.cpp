@@ -16,6 +16,7 @@ using ll = long long;
     int x;    \
     cin >> x; \
     while (x--)
+#define all(x) (x).begin(), (x).end()
 #define sortall(x) sort(all(x))
 #define rep(i, n) for (int i = 0; i < n; ++i)
 #define REP(i, k, n) for (int i = k; i < n; ++i)

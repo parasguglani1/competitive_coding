@@ -29,7 +29,9 @@ void pgsolve()
 {
     int  n, q,ans=0,x=0;
     cin >> n >> q;
-    int *a=new int[n+1];
+    vi a(n);
+    // could have used array in heap 
+    // int *a=new int[n+1];
     REP(i, 0, n)
     {
       a[i] = 0;

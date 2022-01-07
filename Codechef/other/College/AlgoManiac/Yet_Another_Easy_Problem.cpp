@@ -17,7 +17,11 @@ using ll = long long;
     cin >> x; \
     while (x--)
 #define all(x) (x).begin(), (x).end()
+
 #define sortall(x) sort(all(x))
+int mx = 1000001;
+vector<vector<int>>sf(mx);
+vector<bool>prime(mx,false);
 #define rep(i, n) for (int i = 0; i < n; ++i)
 #define REP(i, k, n) for (int i = k; i < n; ++i)
 #define REPR(i, k, n) for (int i = k; i > n; --i)
@@ -25,9 +29,51 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
+vector<bool>v;
+void fun(){
+
+    for(int i=2 ; i<mx ; i++){
+        if(!(sf[i].size())){
+            prime[i] = true;
+            sf[i].push_back(i);
+            for(int j=i+i ; j<mx ; j+=i){
+                sf[j].push_back(i);
+            }
+        }
+    }
+}
+
 void pgsolve()
 {
-    int i, j, n, m;
+      int t,i,j;
+    cin>>t;
+    fun();
+
+    while(t--){
+        int n,x;
+        cin>>n;
+
+        v.assign(mx,false);
+        rep(i,n)
+
+        {
+            cin>>x;
+            if(x==1)
+            continue;
+             rep(j,sf[x].size())
+           
+            v[sf[x][j]] = true;
+        }
+        
+
+        for(i=2 ; i<mx ; i++){
+            if(!v[i] && prime[i])
+            break;
+        }
+        cout<<i<<endl;
+    }
+   
+
 }
 
 int32_t main()
@@ -42,10 +88,10 @@ int32_t main()
 	freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
+void fun();
+  
         pgsolve();
-    }
+    
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef _WIN32 

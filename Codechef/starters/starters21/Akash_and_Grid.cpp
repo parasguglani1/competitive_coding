@@ -27,7 +27,36 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    // int i, j, n, x,y;
+    // cin >>n>>x>>y;
+    // int mid = (n+1)/2;
+    // if ((x-mid)%2==0 && (y-mid)%2==0)
+    // {
+    //     cout << "0" << endl;
+    // }
+    // else if((x-mid)%2==1 && (y-mid)%2==1)
+    // {
+    //     cout << "0" << endl;
+    // }
+    // else
+    // {
+    //     cout << "1" << endl;
+    // }
+  
+   int i, j, n, x,y;
+    cin >>n>>x>>y;
+    int sum=(x+y);
+    if (sum%2==0)
+    {
+        cout<<"0"<<endl;
+    }
+    else
+    {
+        cout<<"1"<<endl;
+    }
+  
+
+
 }
 
 int32_t main()

@@ -27,7 +27,43 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+   
+        int n, m;
+        cin >> n >> m;
+
+        int ans = 0, temp = m;
+        for(int i = 2; i * i <= m; i++){
+            if(!(temp%i)){
+                ans++;
+                while(!(temp%i)){
+                    temp /= i;
+                }
+            }
+        }
+
+        if(temp > 1){
+            ans++;
+        }
+
+        vi arr;
+        for(int i = 1; i * i <= n; i++){
+            if(!(n%i)){
+                arr.pb(i);
+                if(i != (n/i)){
+                    arr.pb(n/i);
+                }
+            }
+        }
+
+        int val = 0;
+
+        for(auto x: arr){
+            if(x <= ans){
+                val = x;
+            }
+        }
+
+        cout << val << endl;
 }
 
 int32_t main()

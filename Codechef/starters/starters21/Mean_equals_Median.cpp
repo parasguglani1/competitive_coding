@@ -27,7 +27,73 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    int n;
+    cin >> n;
+    vi v(n);
+    rep(i, n)
+
+    cin >>v[i];
+
+    sortall(v);
+    int med = 0;
+    int ind = 0;
+    if (n & 1)
+    {
+        ind = ((n + 1) / 2) - 1;
+    }
+    else
+    {
+        ind = ((n) / 2) - 1;
+    }
+    med = v[ind];
+    int sum = 0;
+    int num = 0;
+    rep(i, n)
+    {
+        sum = sum + (v[i] - med);
+        num = num + (v[i]);
+    }
+
+    if (sum <= 0)
+    {
+        cout << abs(sum) << endl;
+        return;
+    }
+
+    int low = 0, high = 1e9;
+    int ans = LLONG_MAX;
+    while (low <= high)
+    {
+
+        int mid = (low + high) >> 1;
+        int x = 0;
+        sum = 0;
+        REP(i, ind, n)
+
+        {
+            x += max(0LL, mid - v[i]);
+        }
+        sum = sum + x;
+        rep(i, n)
+        {
+            sum += (v[i] - mid);
+            if (sum >= 1e18 || sum <= -1e18)
+            {
+                break;
+            }
+        }
+
+        if (sum > 0)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            ans = min(ans, x + abs(sum));
+            high = mid - 1;
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -39,7 +105,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef _WIN32
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
@@ -48,7 +114,7 @@ int32_t main()
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef _WIN32 
+#ifdef _WIN32
     cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;

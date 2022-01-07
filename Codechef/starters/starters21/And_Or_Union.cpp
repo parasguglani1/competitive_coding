@@ -27,7 +27,31 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+    vi bit(32);
+    int n;
+    cin >> n;
+    vi a(n);
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+
+    rep(i, n)
+    {
+        rep(j, 32)
+        {
+            bit[j] += ((a[i] & (1 << j)) > 0);
+        }
+    }
+    int ans = 0;
+    rep(i, 32)
+    {
+        if (bit[i] >= 2)
+        {
+            ans |= (1 << i);
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -39,7 +63,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef _WIN32
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
@@ -48,7 +72,7 @@ int32_t main()
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef _WIN32 
+#ifdef _WIN32
     cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;

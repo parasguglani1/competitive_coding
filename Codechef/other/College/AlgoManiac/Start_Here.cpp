@@ -19,7 +19,7 @@ using ll = long long;
 #define all(x) (x).begin(), (x).end()
 #define sortall(x) sort(all(x))
 #define rep(i, n) for (int i = 0; i < n; ++i)
-#define REP(i, k, n) for (int i = k; i < n; ++i)
+#define REP(i, k, n) for (int i = k; i <= n; ++i)
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
@@ -28,6 +28,13 @@ using ll = long long;
 void pgsolve()
 {
     int i, j, n, m;
+    cin >> n >> m;
+   if((m%n)==0){
+           cout<<"YES"<<endl;
+       }
+       else{
+           cout<<"NO"<<endl;
+       }
 }
 
 int32_t main()
