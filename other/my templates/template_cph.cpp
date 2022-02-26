@@ -38,7 +38,7 @@ int32_t main()
     cout.tie(0);
     auto start1 = high_resolution_clock::now();
 
-#ifdef _WIN32
+#ifdef __GNUC__
 	freopen("Error.txt", "w", stderr);
 #endif
 
@@ -48,7 +48,7 @@ int32_t main()
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef _WIN32 
+#ifdef __GNUC__ 
     cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;
