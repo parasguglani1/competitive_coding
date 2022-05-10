@@ -5,3 +5,4 @@ check.c
 check2.cpp
 check3.cpp
 cph_check.cpp
+.error.txt
