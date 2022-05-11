@@ -1,5 +1,5 @@
 # Completitive Programming in C++
-
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&duration=4000&center=true&lines=C%2B%2B+%7C+Problem+Solving)](https://git.io/typing-svg)<br />
 This repository contains Questions solved by me in various Programming platforms and contests in C++.
  
 It was underwent in a bid to build upon the knowledge from the previous repositories, which can be found here-

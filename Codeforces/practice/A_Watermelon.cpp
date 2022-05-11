@@ -27,42 +27,17 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m,index,q;
-    cin >> n >> m;
-    int a[n];
-    rep(i, n)
+    int i, j, n, m;
+    cin>>n;
+    if(n%2==0 && n>2)
     {
-        cin >> a[i];
+        cout<<"YES";
     }
-    // sort(all(a));
-    sort(a, a + n);
-    REPR(i,n-2,-1)
-
-  
-
+    else
     {
-        a[i] += a[i + 1];
+        cout<<"NO";
     }
-    reverse(a, a + n);
-
-    rep(i,m)
-    {
-        cin>>q;
-        index = lower_bound(a, a + n, q) - a;
-
-        if (index < 0 or index >= n)
-        {
-            cout << "-1\n";
-            continue;
-        }
-
-        cout << index + 1 << endl;
-    }
-
-       }  
-     
-
-    
+}
 
 int32_t main()
 
@@ -76,10 +51,9 @@ int32_t main()
 	freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
+   
         pgsolve();
-    }
+    
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__ 
