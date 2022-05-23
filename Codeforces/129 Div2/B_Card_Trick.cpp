@@ -28,6 +28,23 @@ using ll = long long;
 void pgsolve()
 {
     int i, j, n, m;
+    cin>>n;
+    int a[n];
+    rep(i,n)
+    {
+        cin>>a[i];
+    }
+    cin>>m;
+    int b[m];
+    int b_sum=0;
+    rep(i,m)
+    {
+        cin>>b[i];
+        b_sum+=b[i];
+    }
+    int pos= b_sum%n;
+   cout<<a[pos]<<endl; 
+
 }
 
 int32_t main()
@@ -38,7 +55,7 @@ int32_t main()
     cout.tie(0);
     auto start1 = high_resolution_clock::now();
 
-#ifdef _WIN32
+#ifdef __GNUC__
 	freopen("Error.txt", "w", stderr);
 #endif
 
@@ -48,7 +65,7 @@ int32_t main()
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef _WIN32 
+#ifdef __GNUC__ 
     cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;
