@@ -27,7 +27,7 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int i, j, n, m;
+   
 }
 
 int32_t main()
