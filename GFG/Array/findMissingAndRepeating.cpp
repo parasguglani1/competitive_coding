@@ -25,11 +25,42 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
+int *findTwoElement(int *arr, int n)
+{
+    int temp[n + 1] = {0};
+    int *res = new int[2];
+    for (int i = 0; i < n; i++)
+    {
+        if (temp[arr[i]] == 0)
+        {
+            temp[arr[i]] = 1;
+        }
+        else
+        {
+            res[0] = arr[i];
+        }
+    }
+    for (int i = 1; i < n + 1; i++)
+    {
+        if (temp[i] == 0)
+        {
+            res[1] = i;
+            break;
+        }
+    }
+    return res;
+}
 void pgsolve()
 {
-    int A, B;
-    cin >> A >> B;
-    cout << 7 - max(A, B) << endl;
+    int n;
+    cin >> n;
+    int arr[n];
+    rep(i, n)
+    {
+        cin >> arr[i];
+    }
+    int *res = findTwoElement(arr, n);
+    cout << res[0] << " " << res[1] << endl;
 }
 
 int32_t main()
@@ -41,13 +72,11 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
-        pgsolve();
-    }
+    pgsolve();
+
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__

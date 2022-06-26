@@ -27,9 +27,30 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int A, B;
-    cin >> A >> B;
-    cout << 7 - max(A, B) << endl;
+    /*  Suppose we can only perform exactly one operation. In this case the answer is S=max1≤i≤n(ai or z). In fact, we can prove that this is the answer.
+
+ Define a′i as the value of ai after some operations.
+
+ It suffices to prove the answer will never exceed S. Note that z will always become a submask of itself after any number of operations, so ai will always be a submask of (ai or z) after any number of operations. This leads to the conclusion that a′i≤(ai or z) for all i. Thus max1≤i≤na′i≤max1≤i≤n(ai or z)=S.
+
+ Time complexity is O(n).
+  */
+
+    int n, z;
+    cin >> n >> z;
+    int arr[n];
+    int ans = INT_MIN;
+    rep(i, n)
+    {
+        cin >> arr[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+        int x = (arr[i] | z);
+        int y = (arr[i] & z);
+        ans = max(ans, max(x, y));
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
