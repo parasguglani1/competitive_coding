@@ -25,9 +25,36 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
+// Attack value times× Defense value
+// [B_{1}+B_{2}...+B_{r}] \times [(1000-B_{r+1})+(1000-B_{r+2})...+(1000-B_{n})][B 1+B 2...+B r]×[(1000−B r+1)+(1000−B r+2)...+(1000−Bn)]
+//  [Sum(r)]×[(1000∗(n−r))−(B r+1+B r+2​ ...+B n​ )]
+//  [Sum(r)]×[(1000∗(n−r))−(TotSum−Sum(r))]
+
 void pgsolve()
 {
-    
+    int n;
+    cin >> n;
+
+    int TotSum = 0, Sum = 0;
+    int A[n];
+
+    for (int j = 0; j < n; ++j)
+    {
+        cin >> A[j];
+        TotSum += A[j];
+    }
+
+    sort(A, A + n, greater<int>()); // greater<int>() is used for sorting in descending order
+
+    long long finalAnswer = 0;
+
+    for (int r = 0; r < n; ++r)
+    {
+        finalAnswer = max(finalAnswer, (long long)(Sum) * ((1000 * (n - r)) - (TotSum - Sum)));
+        Sum += A[r];
+    }
+
+    cout << finalAnswer << endl;
 }
 
 int32_t main()
@@ -39,7 +66,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
@@ -48,7 +75,7 @@ int32_t main()
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef __GNUC__ 
+#ifdef __GNUC__
     cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
 #endif
     return 0;

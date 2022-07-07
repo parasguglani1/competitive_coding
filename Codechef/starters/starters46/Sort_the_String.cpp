@@ -27,7 +27,17 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-   
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int count = 0;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (s[i] == '1' && s[i + 1] == '0')
+            count++;
+    }
+    cout << count << endl;
 }
 
 int32_t main()

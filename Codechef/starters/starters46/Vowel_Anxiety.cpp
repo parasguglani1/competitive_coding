@@ -94,8 +94,46 @@ void pgsolve()
         cout << res[i];
     }
 
+//smaller but same
+   /*  int n;
+    cin >> n;
+    vector<char> s(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> s[i];
+    }
+    vector<char> t(n);
+    int l = 0;
+    int r = n - 1;
+    bool start = false;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        if (start)
+        {
+            t[l++] = s[i];
+        }
+        else
+        {
+            t[r--] = s[i];
+        }
+        if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u')
+        {
+            start = !start;
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        cout << t[i];
+    }
+    cout << '\n'; */
+
+
     cout << "\n";
 }
+
+
+
+
 
 int32_t main()
 
