@@ -32,6 +32,7 @@ void pgsolve()
     int a[n];
     int mn = INT_MAX;
     int oddCount = 0;
+
     rep(i, n)
     {
         cin >> a[i];
@@ -48,7 +49,9 @@ void pgsolve()
     {
         cout << "CHEF" << endl;
     }
-    else if ((oddCount % 2) == 0)
+
+    // make all piles to 2
+    else if ((oddCount % 2) == 0) // same as  ((sum - 2 * n) % 2 == 0)
     {
         cout << "CHEFINA" << endl;
     }

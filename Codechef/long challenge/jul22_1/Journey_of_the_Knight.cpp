@@ -30,6 +30,10 @@ void pgsolve()
 
     int X1, Y1, X2, Y2;
     cin >> X1 >> Y1 >> X2 >> Y2;
+    // Given any (X1,Y1) and (X2,Y2), if ((X2+Y2)-(X1+Y1)) is divisible by 2, then the knight can reach (X2,Y2) on the 100^{th}100th move. Else it cannot.
+
+
+
     if (((abs(X1 - X2) + abs(Y1 - Y2)) % 2) == 0)
     {
         cout << "YES" << endl;
