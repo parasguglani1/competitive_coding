@@ -25,48 +25,25 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
-void solve()
+void pgsolve()
 {
-    int n, m, max1 = 0, max2 = 0;
-    cin >> n;
-    rep(i, n)
-    {
-        int ele;
-        cin >> ele;
-        if (ele > max1)
-        {
-            max1 = ele;
-        }
-    }
-    cin >> m;
-    rep(i, m)
-    {
-        int ele;
-        cin >> ele;
-        if (ele > max2)
-        {
-            max2 = ele;
-        }
-    }
-    if (max1 > max2)
-    {
-        cout << "Alice" << endl;
-        cout << "Alice" << endl;
-        // cout << 1 << endl;
-    }
-    else if (max2 > max1)
-    {
-        cout << "Bob" << endl;
-        cout << "Bob" << endl;
-        // cout << 2 << endl;
-    }
+    int n, x;
+    cin >> n >> x;
+    if (n < x)
+        cout << 0 << endl;
     else
     {
-        // cout << max1 << " " << max2;
-        cout << "Alice" << endl;
-        cout << "Bob" << endl;
-        // cout << 3 << endl;
+        int remaining = n - x;
+        if(remaining%4==0)
+        {
+            cout << remaining/4 << endl;
+        }
+        else
+        {
+            cout << remaining/4+1 << endl;
+        }
     }
+
 }
 
 int32_t main()
@@ -83,7 +60,7 @@ int32_t main()
 
     w(t)
     {
-        solve();
+        pgsolve();
     }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
