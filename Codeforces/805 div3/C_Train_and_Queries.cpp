@@ -37,7 +37,7 @@ void pgsolve()
         stations_list.pb(x);
     }
 
-    unordered_map<int, vector<int>> mp;
+    map<int, vector<int>> mp;
     for (int i = 0; i < stations; i++)
     {
         mp[stations_list[i]].pb(i);
@@ -62,6 +62,33 @@ void pgsolve()
         }
         cout << "NO" << endl;
     }
+
+    /* int n, k;
+    cin >> n >> k;
+    map<int, pair<int, int>> m;
+    forn(i, n)
+    {
+        int u;
+        cin >> u;
+        if (!m.count(u))
+        {
+            m[u].first = i;
+            m[u].second = i;
+        }
+        else
+            m[u].second = i;
+    }
+    forn(i, k)
+    {
+        int a, b;
+        cin >> a >> b;
+        if (!m.count(a) or !m.count(b) or m[a].first > m[b].second)
+        {
+            cout << "NO\n"; // equals = 0 = wrong
+        }
+        else
+            cout << "YES\n";
+    } */
 }
 
 int32_t main()

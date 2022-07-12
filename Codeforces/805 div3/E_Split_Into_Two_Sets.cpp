@@ -25,9 +25,60 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
+map<int, vector<int>> m;
+vector<bool> used;
+
+int go(int v)
+{
+    used[v] = true;
+    for (auto now : m[v])
+    {
+        if (!used[now])
+        {
+            return go(now) + 1;
+        }
+    }
+    return 1;
+}
+
 void pgsolve()
 {
-   
+    int n, x, y;
+    cin >> n;
+
+    m.clear();
+    used.clear();
+    used.resize(n + 1, false);
+
+    bool fault = false;
+    rep(i, n)
+    {
+        cin >> x >> y;
+        m[x].push_back(y);
+        m[y].push_back(x);
+        if (x == y || m[x].size() > 2 || m[y].size() > 2)
+            fault = true;
+    }
+
+    if (fault)
+    {
+        cout << "NO\n";
+        return;
+    }
+
+    rep(i, n)
+    {
+        if (!used[i + 1])
+        {
+            if (go(i + 1) % 2)
+            {
+                cout << "NO\n";
+                return;
+            }
+        }
+    }
+
+    cout << "YES\n";
 }
 
 int32_t main()

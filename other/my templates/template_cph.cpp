@@ -23,6 +23,7 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
+#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
 void pgsolve()

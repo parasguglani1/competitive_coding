@@ -42,17 +42,17 @@ void pgsolve()
         cout << n - ans << endl;
     }
     // Note that the number m and the nearest round number not exceeding m have the same size(consist of the same number of digits in the record).Denote the size of m by len.Then we can construct the nearest round number.It will consist of one and len−1 zeros
-/* 
-    int m;
-    cin >> m;
-    string t = to_string(m);
-    string s = "1";
-    for (int i = 1; i < sz(t); i++)
-    {
-        s += '0';
-    }
-    int k = stoi(s);
-    cout << m - k << '\n'; */
+    /*
+        int m;
+        cin >> m;
+        string t = to_string(m);
+        string s = "1";
+        for (int i = 1; i < sz(t); i++)
+        {
+            s += '0';
+        }
+        int k = stoi(s);
+        cout << m - k << '\n'; */
 }
 
 int32_t main()

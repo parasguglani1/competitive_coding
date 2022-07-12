@@ -25,6 +25,8 @@ using ll = long long;
 #define mp make_pair
 #define pii pair<int, int>
 #define vi vector<int>
+
+// Let us simulate the process.We store a set v consisting of letters that Polycarp memorizes on one day.Gradually dial the set s.If the size of v exceeds 3, we add 1 to the day counter ans and clear v 
 void pgsolve()
 {
     string str;
@@ -48,12 +50,11 @@ void pgsolve()
             }
         }
 
-        if(i==n-1)
+        if (i == n - 1)
         {
-            if(!m.empty())
-            ans++;
+            if (!m.empty())
+                ans++;
         }
-
     }
 
     cout << ans << endl;
