@@ -23,12 +23,59 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    int a[n];
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+    bool evenindexodd = false;
+    bool evenindexeven = false;
+    bool oddindexodd = false;
+    bool oddindexeven = false;
+    // all odd index should have either all odd or even
+    // all even index should have either all odd or even
+    for (int i = 0; i < n; i++)
+    {
+        if (i % 2 == 0)
+        {
+            if (a[i] % 2 == 0)
+            {
+                evenindexeven = true;
+            }
+            else
+            {
+                evenindexodd = true;
+            }
+        }
+        else
+        {
+            if (a[i] % 2 == 0)
+            {
+                oddindexeven = true;
+            }
+            else
+            {
+                oddindexodd = true;
+            }
+        }
+    }
 
+    if ((evenindexeven && evenindexodd) || (oddindexeven && oddindexodd))
+    {
+        cout << "NO" << endl;
+        return;
+    }
+    else
+    {
+        cout << "YES" << endl;
+        return;
+    }
 }
 
 int32_t main()
@@ -40,7 +87,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)

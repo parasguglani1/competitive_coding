@@ -23,12 +23,37 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
 void pgsolve()
 {
-
+    int n;
+    cin >> n;
+    int a[n];
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+    if (n < 3)
+    {
+        cout << -1 << endl;
+        return;
+    }
+    map<int, int> m;
+    rep(i, n)
+    {
+        m[a[i]]++;
+    }
+    int ans = 0;
+    for (auto it : m)
+    {
+        if (it.ss > 2)
+        {
+            cout << it.ff << endl;
+            return;
+        }
+    }
+    cout << -1 << endl;
 }
 
 int32_t main()
@@ -40,7 +65,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)

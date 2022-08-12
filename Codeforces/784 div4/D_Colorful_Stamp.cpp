@@ -23,12 +23,12 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
 void pgsolve()
 {
-
+    int n;
+    
 }
 
 int32_t main()
@@ -40,7 +40,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)

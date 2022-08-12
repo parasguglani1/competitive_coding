@@ -23,12 +23,24 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
 void pgsolve()
 {
-
+/*     For Division 1: 1900≤rating
+For Division 2: 1600≤rating≤1899
+For Division 3: 1400≤rating≤1599
+For Division 4: rating≤1399 */
+    int n;
+    cin >> n;
+    if(n<1400)
+        cout<<"Division 4"<<endl;
+    else if(n<1600)
+        cout<<"Division 3"<<endl;
+    else if(n<1900)
+        cout<<"Division 2"<<endl;
+    else
+        cout<<"Division 1"<<endl;
 }
 
 int32_t main()
@@ -40,7 +52,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)

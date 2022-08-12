@@ -28,7 +28,7 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    string str;
+  /*   string str;
     cin >> str;
     int n = sz(str);
     // cout<<n<<endl;
@@ -110,9 +110,9 @@ void pgsolve()
         }
 
         //one test case left found 2 expected 1
-    }
+    } */
 
-   /*  int ans = 0;
+    int ans = 0;
     string s;
     cin >> s;
     for (int i = 0; i < s.size(); i++)
@@ -131,7 +131,7 @@ void pgsolve()
             ans = 1;
         }
     }
-    cout << ans << endl; */
+    cout << ans << endl;
 }
 
 int32_t main()
