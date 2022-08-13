@@ -28,7 +28,32 @@ using ll = long long;
 void pgsolve()
 {
     int n;
-    
+    cin >> n;
+    string s;
+    cin >> s;
+    int cntb = 0, cntr = 0;
+    s += 'W';
+    for (int i = 0; i <= n; ++i)
+    {
+        if (s[i] != 'W')
+        {
+            if (s[i] == 'R')
+                cntr++;
+            else
+                cntb++;
+        }
+        else
+        {
+            if ((cntr == 0 || cntb == 0) && cntr + cntb != 0)
+            {
+                cout << "NO\n";
+                return;
+            }
+            cntr = 0;
+            cntb = 0;
+        }
+    }
+    cout << "YES\n";
 }
 
 int32_t main()
