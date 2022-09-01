@@ -1,5 +1,13 @@
 #include <bits/stdc++.h>
 
+// function to swap two elements
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 using namespace std;
 
 string ltrim(const string &);
