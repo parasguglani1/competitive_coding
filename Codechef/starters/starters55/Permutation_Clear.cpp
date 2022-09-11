@@ -59,6 +59,41 @@ void pgsolve()
     }
 
     cout << endl;
+
+    /*
+    This is an implementation problem more than anything else — it is enough to do exactly what is asked for.
+
+Iterate across the values of AA. Say we are currently at A_iA
+i
+​
+ , and we want to know whether to print it or not.
+All that we really need to know is whether A_iA
+i
+​
+  is one of the elements of BB, and to check this faster than \mathcal{O}(N)O(N) (since the constraints are such that \mathcal{O}(N^2)O(N
+2
+ ) algorithms will TLE).
+
+This check can be done in \mathcal{O}(\log N)O(logN) or even \mathcal{O}(1)O(1), in several ways:
+
+The easiest way is to use the set data structure present in most languages. Insert all the elements of BB into a set SS, then simply check if A_iA
+i
+​
+  is in SS. This check is \mathcal{O}(\log N)O(logN) in C++ set and Java TreeSet, and \mathcal{O}(1)O(1) in python set and Java HashSet.
+Alternately, we can use an array. Note that all the elements are from 11 to NN, so we can create an array markmark of length NN, such that mark_imark
+i
+​
+  is 11 if ii is present in BB and 00 otherwise. Now, we only need to look at mark_{A_i}mark
+A
+i
+​
+
+​
+  to decide if A_iA
+i
+​
+  is in BB, which takes \mathcal{O}(1)O(1) time.
+ */
 }
 
 int32_t main()

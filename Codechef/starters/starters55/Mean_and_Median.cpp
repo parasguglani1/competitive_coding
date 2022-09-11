@@ -50,6 +50,20 @@ void pgsolve()
     // a = b - 201;
     // c = ans - a;
     // cout << a << " " << b << " " << c << endl;
+
+    /* The median is YY, so one of the three numbers should definitely be YY.
+
+The mean is XX, which means that \frac{A+B+C}{3} = X
+3
+A+B+C
+​
+ =X, or in other words, A+B+C = 3XA+B+C=3X.
+
+After noticing this, several constructions are possible.
+
+One solution is to print the three numbers Y, Y, 3X - 2YY,Y,3X−2Y. Their sum is clearly 3X3X, and since there are two occurrences of YY, one of them is guaranteed to be the middle element regardless of the value of 3X-2Y3X−2Y, hence the median is YY.
+
+ */
 }
 
 int32_t main()

@@ -28,32 +28,54 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
+    /*  int n;
+     cin >> n;
+     vi a(n);
+     rep(i, n)
+     {
+         a[i] = i + 1;
+     }
+     if (n % 2)
+     {
+         for (int i = 1; i < n - 2; i += 2)
+         {
+             swap(a[i], a[i + 1]);
+         }
+     }
+     else
+     {
+         for (int i = 0; i < n - 2; i += 2)
+         {
+             swap(a[i], a[i + 1]);
+         }
+     }
+     for (int i = 0; i < n; i++)
+     {
+         cout << a[i] << " ";
+     }
+
+     cout << endl; */
+
     int n;
     cin >> n;
-    int arr[n];
-    set<int> sele;
-    rep(i, n)
+    if (n == 4)
     {
-        cin >> arr[i];
+        cout << "2 1 3 4" << endl;
+        return;
     }
-    sele.insert(0);
-    int count = 0, tillxor = 0;
-    rep(i, n)
-    {
-        tillxor ^= arr[i];
-        int cnt = sele.count(tillxor);
-        if (cnt > 0)
-        {
-            sele.clear();
-            tillxor = 0;
-            sele.insert(0);
-            count += 1;
-        }
-        sele.insert(tillxor);
-    }
-    cout << count << endl;
+    for (int i = 0; i < n - 5; i++)
+        cout << i + 4 << " ";
+    cout << "2 3 1 " << n - 1 << " " << n << endl;
 
-    /* https://www.codechef.com/submit/NZXOR?tab=solution */
+/*
+
+    vector<int> p(n);
+    iota(p.begin(), p.end(), 1); //sets with one increment
+    for (int i = n & 1; i < n - 2; i += 2) swap(p[i], p[i + 1]);
+    for (int &x : p) cout << x << ' ';
+    cout << '\n';
+
+       */
 }
 
 int32_t main()

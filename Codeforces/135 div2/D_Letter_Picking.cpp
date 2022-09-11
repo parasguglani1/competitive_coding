@@ -29,31 +29,34 @@ using ll = long long;
 void pgsolve()
 {
     int n;
-    cin >> n;
-    int arr[n];
-    set<int> sele;
-    rep(i, n)
+    scanf("%d", &n);
+    vector<int> a(n), b(n);
+    rep(i, n) scanf("%d", &a[i]);
+    rep(i, n) scanf("%d", &b[i]);
+    priority_queue<int> qa(a.begin(), a.end());
+    priority_queue<int> qb(b.begin(), b.end());
+    int ans = 0;
+    while (!qa.empty())
     {
-        cin >> arr[i];
-    }
-    sele.insert(0);
-    int count = 0, tillxor = 0;
-    rep(i, n)
-    {
-        tillxor ^= arr[i];
-        int cnt = sele.count(tillxor);
-        if (cnt > 0)
+        if (qa.top() == qb.top())
         {
-            sele.clear();
-            tillxor = 0;
-            sele.insert(0);
-            count += 1;
+            qa.pop();
+            qb.pop();
+            continue;
         }
-        sele.insert(tillxor);
+        ++ans;
+        if (qa.top() > qb.top())
+        {
+            qa.push(to_string(qa.top()).size());
+            qa.pop();
+        }
+        else
+        {
+            qb.push(to_string(qb.top()).size());
+            qb.pop();
+        }
     }
-    cout << count << endl;
-
-    /* https://www.codechef.com/submit/NZXOR?tab=solution */
+    printf("%d\n", ans);
 }
 
 int32_t main()

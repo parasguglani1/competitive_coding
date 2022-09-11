@@ -28,32 +28,27 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
+https: // codeforces.com/blog/entry/106805
     int n;
     cin >> n;
-    int arr[n];
-    set<int> sele;
+    vi a(n);
+    rep(i, n) cin >> a[i];
+    int maxx = 0;
+    int max_index = 0;
     rep(i, n)
     {
-        cin >> arr[i];
-    }
-    sele.insert(0);
-    int count = 0, tillxor = 0;
-    rep(i, n)
-    {
-        tillxor ^= arr[i];
-        int cnt = sele.count(tillxor);
-        if (cnt > 0)
+        if (a[i] > maxx)
         {
-            sele.clear();
-            tillxor = 0;
-            sele.insert(0);
-            count += 1;
+            maxx = a[i];
+            max_index = i;
         }
-        sele.insert(tillxor);
     }
-    cout << count << endl;
+    // cout << max_index + 1 << endl;
 
-    /* https://www.codechef.com/submit/NZXOR?tab=solution */
+    // gets max element
+    // cout << max_element(a.begin(), a.end()) - a.begin() + 1 << '\n';
+
+    cout << *max_element(a.begin(), a.end()) << '\n';
 }
 
 int32_t main()

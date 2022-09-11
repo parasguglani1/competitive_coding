@@ -46,6 +46,32 @@ void pgsolve()
         return;
     }
     cout << "YES" << endl;
+
+    /*
+    The answer is “Yes” if and only if N \geq \frac{K(K+1)}{2}N≥
+2
+K(K+1)
+​
+
+
+ Proof
+Since the boxes must have a distinct number of balls, the minimum possible number of balls is 1 + 2 + 3 + \ldots + K = \frac{K(K+1)}{2}1+2+3+…+K=
+2
+K(K+1)
+​
+ . So, we must definitely have N \geq \frac{K(K+1)}{2}N≥
+2
+K(K+1)
+​
+ .
+
+On the other hand, suppose we have more than \frac{K(K+1)}{2}
+2
+K(K+1)
+​
+  balls. Distribute them so that initially the boxes have 1, 2, \ldots K1,2,…K balls. Then, put all remaining balls into the last box (the one with KK balls initially). This gives us a valid distribution, thus completing the proof.
+
+ */
 }
 
 int32_t main()
