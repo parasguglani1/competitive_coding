@@ -28,7 +28,46 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    vi vv(n);
+    int res = 0;
+    rep(i, n)
+    {
+        int ele;
+        cin >> ele;
+        vv[i] = -ele;
+    }
+    rep(i, n)
+    {
+        int ele;
+        cin >> ele;
+        vv[i] += ele;
+    }
+
+    sort(all(vv));
+    int last = n - 1;
+    int con = (last) / 2;
+    auto part = vv.begin();
+    for (int i = last; i > con; i--)
+    {
+        int key = -vv[i];
+        int index = lower_bound(part, vv.end(), key) - vv.begin();
+
+        if (index >= i)
+        {
+            break;
+        }
+        else
+        {
+            part = vv.begin() + index + 1;
+            res++;
+        }
+    }
+
+    cout << res << endl;
 //TODO
+// https: // codeforces.com/blog/entry/106916
 }
 
 int32_t main()
@@ -40,7 +79,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

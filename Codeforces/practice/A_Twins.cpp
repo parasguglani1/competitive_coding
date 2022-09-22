@@ -28,7 +28,28 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-//TODO
+    int n;
+    cin >> n;
+    int a[n];
+    int sum = 0;
+    rep(i, n)
+    {
+        cin >> a[i];
+        sum += a[i];
+    }
+    sort(a, a + n);
+    int ans = 0;
+    int s = 0;
+    REPR(i, n - 1, -1)
+    {
+        s += a[i];
+        ans++;
+        if (s > sum - s)
+        {
+            break;
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -40,13 +61,13 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
-        pgsolve();
-    }
+    // w(t)
+    // {
+    pgsolve();
+    // }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__

@@ -28,7 +28,29 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-//TODO
+    int a, b, c;
+    cin >> a >> b >> c;
+    int d2 = 0;
+    if (b > c)
+    {
+        d2 = b;
+    }
+    else
+    {
+        d2 = c + c - b;
+    }
+    if (a > d2)
+    {
+        cout << 2 << endl;
+    }
+    else if (a < d2)
+    {
+        cout << 1 << endl;
+    }
+    else
+    {
+        cout << 3 << endl;
+    }
 }
 
 int32_t main()
@@ -40,7 +62,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
