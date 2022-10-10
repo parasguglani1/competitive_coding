@@ -30,24 +30,50 @@ void pgsolve()
 {
     int n;
     cin >> n;
-    // n/=2;
- /*    int evensum = ((n * (n + 2))) / 4;
-    int oddsum = -1 * (n * n) / 4;
-    oddsum += ((n * (n + 2))) / 4;
+    int b[n];
+    int zerocount = 0;
+    int onecount = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> b[i];
+        if (b[i] == 0)
+        {
+            zerocount++;
+        }
+        else
+        {
+            onecount++;
+        }
+    }
+    vi zero;
+    vi one;
+    int a[n];
+    int c[n];
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        c[i] = a[i];
+        if (b[i] == 0)
+        {
+            zero.pb(a[i]);
+        }
+        else
+        {
+            one.pb(a[i]);
+        }
+    }
 
-    if (n % 2)
+    sort(all(zero));
+    sort(all(one));
+    sort(c, c + n);
+    int doubles=2*min(zerocount,onecount);
+    int singles=abs(zerocount-onecount);
+    for (int i = n-1    ; i >=0; i++)
     {
-        oddsum -= n;
+        /* code */
     }
-    cout << oddsum << endl; */
-    if (n%2)
-    {
-        cout<<n/2-n<<endl;
-    }
-    else
-    {
-        cout<<n/2<<endl;
-    }
+
+
 }
 
 int32_t main()
@@ -62,8 +88,10 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    pgsolve();
-
+    w(t)
+    {
+        pgsolve();
+    }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__

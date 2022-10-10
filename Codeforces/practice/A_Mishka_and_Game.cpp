@@ -29,25 +29,35 @@ using ll = long long;
 void pgsolve()
 {
     int n;
-    cin >> n;
-    // n/=2;
- /*    int evensum = ((n * (n + 2))) / 4;
-    int oddsum = -1 * (n * n) / 4;
-    oddsum += ((n * (n + 2))) / 4;
-
-    if (n % 2)
+    cin>>n;
+    int mcount=0,ccount=0;
+    for (int i = 0; i < n; i++)
     {
-        oddsum -= n;
+        int m,c;
+        cin>>m>>c;
+        if(m>c)
+        {
+            mcount++;
+        }
+        else if(c>m)
+        {
+            ccount++;
+        }
     }
-    cout << oddsum << endl; */
-    if (n%2)
+    if(mcount>ccount)
     {
-        cout<<n/2-n<<endl;
+        cout<<"Mishka"<<endl;
+    }
+    else if(ccount>mcount)
+    {
+        cout<<"Chris"<<endl;
     }
     else
     {
-        cout<<n/2<<endl;
+        cout<<"Friendship is magic!^^"<<endl;
     }
+
+
 }
 
 int32_t main()
@@ -59,11 +69,12 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+	freopen("Error.txt", "w", stderr);
 #endif
 
-    pgsolve();
 
+        pgsolve();
+   
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__
