@@ -28,30 +28,7 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    int d[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> d[i];
-    }
-    vi ans(n);
-    ans[0] = d[0];
-    REP(i, 1, n)
-    {
-        if (ans[i - 1] - d[i] >= 0 && d[i] != 0)
-        {
-            cout << -1 << endl;
-            return;
-        }
-        else
-        {
-            ans[i] = ans[i - 1] + d[i];
-        }
-    }
-    for (auto x : ans)
-        cout << x << ' ';
-    cout << endl;
+
 }
 
 int32_t main()
@@ -63,7 +40,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+	freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

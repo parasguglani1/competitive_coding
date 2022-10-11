@@ -30,28 +30,47 @@ void pgsolve()
 {
     int n;
     cin >> n;
-    int d[n];
+    int arr[n];
+    int s = 0, t = 0;
     for (int i = 0; i < n; i++)
     {
-        cin >> d[i];
+        cin >> arr[i];
     }
-    vi ans(n);
-    ans[0] = d[0];
-    REP(i, 1, n)
+    int i = 0;
+    int j = n - 1;
+    int flag = 1;
+    while (i <= j)
     {
-        if (ans[i - 1] - d[i] >= 0 && d[i] != 0)
+        if (flag)
         {
-            cout << -1 << endl;
-            return;
+            if (arr[i] > arr[j])
+            {
+                s += arr[i];
+                i++;
+            }
+
+            else
+            {
+                s += arr[j];
+                j--;
+            }
         }
         else
         {
-            ans[i] = ans[i - 1] + d[i];
+            if (arr[i] > arr[j])
+            {
+                t += arr[i];
+                i++;
+            }
+            else
+            {
+                t += arr[j];
+                j--;
+            }
         }
+        flag = !flag;
     }
-    for (auto x : ans)
-        cout << x << ' ';
-    cout << endl;
+    cout << s << " " << t << "\n";
 }
 
 int32_t main()
@@ -63,7 +82,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+	freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

@@ -28,29 +28,52 @@ using ll = long long;
 #define vi vector<int>
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    int d[n];
+    int n, k;
+    cin >> n >> k;
+    string str;
+    cin >> str;
+    vector<int> freq(26, 0);
+
+    int m = n / k;
+    // map<char, int> freq;
+
     for (int i = 0; i < n; i++)
     {
-        cin >> d[i];
+        // int x = str[i] - 'a';
+        freq[str[i] - 'a']++;
     }
-    vi ans(n);
-    ans[0] = d[0];
-    REP(i, 1, n)
+    int cnt;
+    for (int i = 0; i < k; i++)
     {
-        if (ans[i - 1] - d[i] >= 0 && d[i] != 0)
+        cnt = 0;
+        for (int j = 0; j < 26; j++)
         {
-            cout << -1 << endl;
-            return;
-        }
-        else
-        {
-            ans[i] = ans[i - 1] + d[i];
+            if (freq[j] > 0)
+            {
+                cnt++;
+                freq[j]--;
+            }
+            else
+            {
+                int curr = 'a' + j;
+                char c = (char)(curr);
+                cout << c;
+                break;
+            }
+            if (cnt > m)
+            {
+                int curr = 'a' + j;
+                char c = (char)(curr);
+                cout << c;
+                break;
+            }
         }
     }
-    for (auto x : ans)
-        cout << x << ' ';
+
+    // for (auto x : freq)
+    // {
+    //   cout << x.first << " "<< x.second << endl;
+    // }
     cout << endl;
 }
 
@@ -63,7 +86,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+	freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

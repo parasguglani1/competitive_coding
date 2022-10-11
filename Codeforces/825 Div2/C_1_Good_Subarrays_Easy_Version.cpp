@@ -30,28 +30,30 @@ void pgsolve()
 {
     int n;
     cin >> n;
-    int d[n];
-    for (int i = 0; i < n; i++)
+    int arr[n];
+    int j = 0, k = 1, i = 0, ans = 0;
+    rep(i, n)
     {
-        cin >> d[i];
+        cin >> arr[i];
     }
-    vi ans(n);
-    ans[0] = d[0];
-    REP(i, 1, n)
+
+    while (j < n)
     {
-        if (ans[i - 1] - d[i] >= 0 && d[i] != 0)
+        bool flag = i < n && k > arr[j];
+        while (flag)
         {
-            cout << -1 << endl;
-            return;
+            k--;
+            i++;
+            flag = (i < n && k > arr[j]);
         }
-        else
-        {
-            ans[i] = ans[i - 1] + d[i];
-        }
+        int diff = j - i + 1;
+
+        k++;
+        j++;
+        ans += (diff);
     }
-    for (auto x : ans)
-        cout << x << ' ';
-    cout << endl;
+
+    cout << ans << endl;
 }
 
 int32_t main()

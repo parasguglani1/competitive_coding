@@ -30,28 +30,63 @@ void pgsolve()
 {
     int n;
     cin >> n;
-    int d[n];
+    int a[n], b[n];
+    int a1 = 0, b1 = 0;
     for (int i = 0; i < n; i++)
     {
-        cin >> d[i];
+        cin >> a[i];
+        if (a[i] == 1)
+        {
+            a1++;
+        }
     }
-    vi ans(n);
-    ans[0] = d[0];
-    REP(i, 1, n)
+    for (int i = 0; i < n; i++)
     {
-        if (ans[i - 1] - d[i] >= 0 && d[i] != 0)
+        cin >> b[i];
+        if (b[i] == 1)
         {
-            cout << -1 << endl;
-            return;
-        }
-        else
-        {
-            ans[i] = ans[i - 1] + d[i];
+            b1++;
         }
     }
-    for (auto x : ans)
-        cout << x << ' ';
-    cout << endl;
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] != b[i])
+            count++;
+    }
+    /*   if (count == 0)
+      {
+          cout << count << endl;
+          return;
+      } */
+    /*  int zero, one;
+     for (int i = 0; i < n; i++)
+     {
+         if (a[i] == 1 && b[i] == 0)
+         {
+             one++;
+         }
+         else if (a[i] == 0 && b[i] == 1)
+         {
+             zero++;
+         }
+     }
+     sort(a, a + n);
+     sort(b, b + n);
+     int zero2 = 0, one2 = 0;
+     for (int i = 0; i < n; i++)
+     {
+         if (a[i] == 1 && b[i] == 0)
+         {
+             one2++;
+         }
+         else if (a[i] == 0 && b[i] == 1)
+         {
+             zero2++;
+         }
+     }
+     cout << min(one + zero, one2 + zero2 + 1) << endl; */
+    cout << min(count, abs(a1 - b1) + 1) << endl;
 }
 
 int32_t main()
