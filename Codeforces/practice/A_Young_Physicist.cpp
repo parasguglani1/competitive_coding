@@ -30,7 +30,25 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-
+    int n;
+    cin >> n;
+    int xsum = 0, ysum = 0, zsum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int x, y, z;
+        cin >> x >> y >> z;
+        xsum += x;
+        ysum += y;
+        zsum += z;
+    }
+    if (xsum == 0 && ysum == 0 && zsum == 0)
+    {
+        yes
+    }
+    else
+    {
+        no
+    }
 }
 
 int32_t main()
@@ -42,13 +60,11 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
-        pgsolve();
-    }
+    pgsolve();
+
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__

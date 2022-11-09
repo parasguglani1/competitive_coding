@@ -26,11 +26,50 @@ using ll = long long;
 #define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
+string decToBinary(ll n)
+{
+    // array to store binary number
+    // ll binaryNum[32];
+    // ll *binaryNum = new ll[32];
+    string binaryNum = "";
+
+    // counter for binary array
+    // ll i = 0;
+    while (n > 0)
+    {
+
+        // storing remainder in binary array
+        char a = n % 2 + '0';
+        binaryNum.push_back(a);
+        n = n / 2;
+        // i++;
+    }
+    reverse(binaryNum.begin(), binaryNum.end());
+    // cout << binaryNum << endl;
+
+    // prlling binary array in reverse order
+    // for (ll j = i - 1; j >= 0; j--)
+    //     cout << binaryNum[j];
+    return binaryNum;
+}
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+    }
+    vector<string> v2(n);
 
+    transform(v.begin(), v.end(), v2.begin(), ::decToBinary);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << v2[i] << endl;
+    }
+    // cout << s2 << endl;
 }
 
 int32_t main()
@@ -42,10 +81,9 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
     {
         pgsolve();
     }

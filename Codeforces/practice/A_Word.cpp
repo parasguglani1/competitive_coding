@@ -26,11 +26,34 @@ using ll = long long;
 #define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
+
 void pgsolve()
 {
+    string s;
+    cin >> s;
+    int n = s.size();
+    int lowcount = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] >= 'a')
+        {
+            lowcount++;
+        }
+    }
+    int upcount = n - lowcount;
 
+    string s2 = s;
+    if (lowcount >= upcount)
+    {
+
+        transform(s.begin(), s.end(), s2.begin(), ::tolower);
+    }
+    else
+    {
+
+        transform(s.begin(), s.end(), s2.begin(), ::toupper);
+    }
+    cout << s2 << endl;
 }
 
 int32_t main()
@@ -42,10 +65,9 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
     {
         pgsolve();
     }

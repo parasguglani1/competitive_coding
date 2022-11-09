@@ -26,11 +26,11 @@ using ll = long long;
 #define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
 void pgsolve()
 {
-
+    int n;
+    cin>>n;
+    cout<<ceil(((float)n/5))<<endl;
 }
 
 int32_t main()
@@ -45,10 +45,8 @@ int32_t main()
 	freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
-    {
+
         pgsolve();
-    }
     auto stop1 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef __GNUC__
