@@ -28,55 +28,65 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-#include <bits/stdc++.h>
-using namespace std;
+int caseno = 1;
 
 void pgsolve()
 {
-    int a, b;
-    cin >> a >> b;
-    int gcd = __gcd(a, b);
-    if (gcd == 1)
+    int l, n;
+    cin >> l >> n;
+    // int arr[n];
+    int ans = 0;
+    int curr = 0;
+    rep(i, n)
     {
-        no
-    }
-    else
-    {
-        yes
-    }
-    // int c = 2;
-    // unordered_set<int> st;
-    // while (b % 2 == 0)
-    // {
-    //     st.insert(2);
-    //     b = b / 2;
-    // }
+        int x;
+        char d;
+        cin >> x >> d;
+        if (d == 'C')
+        {
+            curr += x;
+        }
+        else
+        {
+            curr -= x;
+        }
+        // while (abs(curr) >= l)
+        // {
 
-    // // n must be odd at this point. So we can skip
-    // // one element (Note i = i +2)
-    // for (int i = 3; i <= sqrt(b); i = i + 2)
-    // {
-    //     // While i divides n, print i and divide n
-    //     while (b % i == 0)
-    //     {
-    //         st.insert(i);
-    //         b = b / i;
-    //     }
-    // }
+        //     ans++;
+        //     // cout << curr << endl;
 
-    // // This condition is to handle the case when n
-    // // is a prime number greater than 2
-    // if (b > 2)
-    //     st.insert(b);
-    // for (auto i : st)
-    // {
-    //     if (a % i)
-    //     {
-    //         no return;
-    //     }
-    // }
-    // yes
-    //TODO
+        //     if (curr < 0)
+        //     {
+        //         curr += l;
+        //     }
+        //     else
+        //     {
+        //         curr -= l;
+        //     }
+        // }
+        if (abs(curr) >= l)
+        {
+            ans += abs(curr) / l;
+
+            // ans++;
+            // cout << curr << endl;
+
+            if (curr < 0)
+            {
+                curr += (abs(curr) / l) * l;
+                // curr += l;
+            }
+            else
+            {
+                curr -= (abs(curr) / l) * l;
+                // curr -= l;
+            }
+        }
+    }
+
+    cout << "Case #" << caseno << ": " << ans << endl;
+    caseno++;
 }
 
 int32_t main()

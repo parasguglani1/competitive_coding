@@ -28,55 +28,49 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-#include <bits/stdc++.h>
-using namespace std;
+int caseno = 1;
 
 void pgsolve()
 {
-    int a, b;
-    cin >> a >> b;
-    int gcd = __gcd(a, b);
-    if (gcd == 1)
-    {
-        no
-    }
-    else
-    {
-        yes
-    }
-    // int c = 2;
-    // unordered_set<int> st;
-    // while (b % 2 == 0)
-    // {
-    //     st.insert(2);
-    //     b = b / 2;
-    // }
 
-    // // n must be odd at this point. So we can skip
-    // // one element (Note i = i +2)
-    // for (int i = 3; i <= sqrt(b); i = i + 2)
-    // {
-    //     // While i divides n, print i and divide n
-    //     while (b % i == 0)
-    //     {
-    //         st.insert(i);
-    //         b = b / i;
-    //     }
-    // }
+    int n;
+    cin >> n;
+    // graph of n nodes
+    vector<vector<int>> graph(n + 1);
+    vector<int> a(n + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> a[i];
+    }
+    // edges
+    for (int i = 1; i <= n - 1; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        graph[u].push_back(v);
+        graph[v].push_back(u);
+    }
 
-    // // This condition is to handle the case when n
-    // // is a prime number greater than 2
-    // if (b > 2)
-    //     st.insert(b);
-    // for (auto i : st)
-    // {
-    //     if (a % i)
-    //     {
-    //         no return;
-    //     }
-    // }
-    // yes
-    //TODO
+    vector<int> sorted(n + 1);
+    iota(sorted.begin(), sorted.end(), 0);
+    sort(sorted.begin(), sorted.end(), [&](int i, int j)
+         { return a[i] < a[j]; });
+    vector<int> dp(n + 1, 1);
+    int ans = 0;
+    for (int i : sorted)
+    {
+        for (int j : graph[i])
+        {
+            if (a[j] < a[i])
+            {
+                dp[i] += dp[j];
+            }
+        }
+        ans = max(ans, dp[i]);
+    }
+
+    cout << "Case #" << caseno << ": " << ans << endl;
+    caseno++;
 }
 
 int32_t main()

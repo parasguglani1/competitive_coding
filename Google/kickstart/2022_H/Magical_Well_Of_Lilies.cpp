@@ -28,55 +28,70 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-#include <bits/stdc++.h>
-using namespace std;
+int caseno = 1;
 
-void pgsolve()
+int case1(int record, int coins, int lilles, int l)
 {
-    int a, b;
-    cin >> a >> b;
-    int gcd = __gcd(a, b);
-    if (gcd == 1)
+    coins += 1;
+    lilles += 1;
+    return 0;
+}
+int case2(int record, int coins, int lilles, int l)
+{
+
+    if (l - lilles >= record)
     {
-        no
+        coins += 4;
+        record = lilles;
     }
     else
     {
-        yes
+        return INT_MAX;
     }
-    // int c = 2;
-    // unordered_set<int> st;
-    // while (b % 2 == 0)
-    // {
-    //     st.insert(2);
-    //     b = b / 2;
-    // }
+    return 0;
+}
+int case3(int record, int coins, int lilles, int l)
+{
+    if (l - lilles >= record)
+    {
+        coins += 2;
+        record = coins;
+    }
+    else
+    {
+        return INT_MAX;
+    }
+    return 0;
+}
 
-    // // n must be odd at this point. So we can skip
-    // // one element (Note i = i +2)
-    // for (int i = 3; i <= sqrt(b); i = i + 2)
-    // {
-    //     // While i divides n, print i and divide n
-    //     while (b % i == 0)
-    //     {
-    //         st.insert(i);
-    //         b = b / i;
-    //     }
-    // }
 
-    // // This condition is to handle the case when n
-    // // is a prime number greater than 2
-    // if (b > 2)
-    //     st.insert(b);
-    // for (auto i : st)
-    // {
-    //     if (a % i)
-    //     {
-    //         no return;
-    //     }
-    // }
-    // yes
-    //TODO
+void pgsolve()
+{
+    int l;
+    cin >> l;
+    int cases[3] = {1,2,4};
+    int ans = 0;
+    if (l <= 13)
+    {
+        ans = l;
+    }
+    else if(l<=15)
+    {
+        ans=13;
+
+    }
+    else if (l == 16|| l==18)
+    {
+        ans = 14;
+    }
+    else
+    {
+        ans = 15;
+    }
+
+
+    cout << "Case #" << caseno << ": " << ans << endl;
+    caseno++;
 }
 
 int32_t main()
