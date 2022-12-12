@@ -29,8 +29,10 @@ using ll = long long;
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 void pgsolve()
-{//TODO
-
+{
+    int a, b, k;
+    cin >> a >> b >> k;
+    cout << ceil((abs(b - a)) * 1.0 / k) << endl;
 }
 
 int32_t main()
@@ -42,7 +44,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

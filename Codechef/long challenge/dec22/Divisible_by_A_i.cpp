@@ -29,8 +29,8 @@ using ll = long long;
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 void pgsolve()
-{//TODO
-
+{
+//TODO
 }
 
 int32_t main()

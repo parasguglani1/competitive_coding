@@ -29,8 +29,34 @@ using ll = long long;
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 void pgsolve()
-{//TODO
-
+{
+    int n, k;
+    cin >> n >> k;
+    int a[n];
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+    int lcm = 1;
+    rep(i, n)
+    {
+        for (int j = min(a[i], k); j > 0; j--)
+        {
+            if (a[i] % j == 0 && k % j == 0)
+            {
+                a[i] = a[i] / j;
+                k = k / j;
+            }
+        }
+    }
+    if (k == 1)
+    {
+        yes
+    }
+    else
+    {
+        no
+    }
 }
 
 int32_t main()
@@ -42,7 +68,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
