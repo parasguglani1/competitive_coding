@@ -28,65 +28,64 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-
-int MinOperation(int a[], int n, int k)
-{
-    int result = 0;
-    for (int i = 0; i < n; ++i)
-    {
-        // If array value is not 1 and it is greater than k
-        // then we can increase the or decrease the
-        // remainder obtained by dividing k from the ith
-        // value of array so that we get the number which is
-        // either closer to k or its multiple
-        if (a[i] != 1 && a[i] > k)
-        {
-            result = result + min(a[i] % k, k - a[i] % k);
-        }
-        else
-            // Else we only have one choice which is to
-            // increment the value to make equal to k
-            result = result + k - a[i];
-    }
-
-    return result;
-}
 void pgsolve()
 {
-    int a, b;
-    cin >> a >> b;
-    if (abs(a - b) == 1)
+    int n;
+    cin >> n;
+    vi a(n);
+    vi b(n);
+    rep(i, n)
     {
-        cout << "-1" << endl;
-        return;
+        cin >> a[i];
+        b[i] = a[i];
     }
-    if (__gcd(a, b) > 1)
+    int ans = 0;
+    int sum = 0;
+    rep(i, n)
     {
-        cout << "0" << endl;
-        return;
+        sum += a[i];
+    }
+    int ans1 = INT_MAX;
+    int ans2 = INT_MAX;
+
+    if (sum % 2 == 0)
+    {
+        ans = 0;
     }
     else
     {
-        int count = INT_MAX;
-        int arr[] = {a, b};
-        for (int i = 2; i < 1000; i++)
+        ans1 = INT_MAX;
+        rep(i, n)
         {
-            int temp = MinOperation(arr, 2, i);
-            count = min(count, temp);
+            if (a[i] % 2 == 1)
+            {
+                int steps = 0;
+                while (a[i] % 2 == 1)
+                {
+                    a[i] /= 2;
+                    steps++;
+                }
+                ans1 = min(ans1, steps);
+            }
         }
-//TODO optimize
-        while (__gcd(a, b) == 1)
+        rep(i, n)
         {
-            a++;
-            b++;
-            count++;
+            if (b[i] % 2 == 0 && b[i] > 0)
+            {
+                int steps = 0;
+                while (b[i] % 2 == 0 && b[i] > 0)
+                {
+                    b[i] /= 2;
+                    steps++;
+                }
+                // cout << ans2 << " " << steps << endl;
+                ans2 = min(ans2, steps);
+            }
         }
-        // cout<<a<<" "<<b<<endl;
-        // cout<<__gcd(a,b)<<endl;
-        cout << count << endl;
-
-        // cout<<20000-(20000%9991)<<endl;
+        ans = min(ans1, ans2);
     }
+    cout << ans << endl;
+    // cout << endl;
 }
 
 int32_t main()
