@@ -30,47 +30,31 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-    int m, n;
-    cin >> m >> n;
+    int n;
+    cin >> n;
     int a[n];
     rep(i, n)
     {
         cin >> a[i];
     }
-    int i = 0;
-
-    sort(a, a + n);
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout << a[i] << " ";
-    // }
-    int diff = INT_MAX;
-    diff = min(a[m - 1] - a[0],diff);
-    diff=min(a[n-1]-a[n-m],diff);
-    //pick m middle elements from n elements
-    for (int i = 0; i < n - m + 1; i++)
+    int max = a[0];
+    int min = a[0];
+    int count = 0;
+    rep(i, n)
     {
-        diff = min(diff, a[i + m - 1] - a[i]);
+        if (a[i] > max)
+        {
+            max = a[i];
+            count++;
+        }
+        if (a[i] < min)
+        {
+            min = a[i];
+            count++;
+        }
     }
-    cout << diff << endl;
-    // if(n%2==0)
-    // {
+    cout << count << endl;
 
-    // }
-
-    // cout << endl;
-    // int temp1 = 0, temp2 = 0;
-    // temp1 = n - m;
-    // temp1=temp1/2;
-    // int ans1 = 0, ans2 = 0;
-    // cout<<a[temp1]<<" ";
-    // cout<<endl;
-    // ans1=a[temp1+m]-a[temp1];
-    // ans2=a[temp1+m-1]-a[temp1-1];
-
-    // ans1 = a[temp1] - a[n-1];
-    // ans2 = a[n - 1] - a[temp1];
-    // cout << min(ans1, ans2) << endl;
 }
 
 int32_t main()
@@ -82,7 +66,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+	freopen("Error.txt", "w", stderr);
 #endif
 
     // w(t)

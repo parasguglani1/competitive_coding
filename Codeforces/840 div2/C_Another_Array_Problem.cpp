@@ -30,7 +30,37 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-//todo
+    int n;
+    cin >> n;
+    int a[n];
+    int mx = INT_MIN;
+    rep(i, n)
+    {
+        cin >> a[i];
+        mx = max(mx, a[i]);
+    }
+    int ans = 0;
+    if (n == 1)
+    {
+        ans = a[0];
+    }
+    else if (n == 2)
+    {
+        ans = max(a[0] + a[1], 2 * abs(a[0] - a[1]));
+    }
+    else if (n == 3)
+    {
+        ans = a[0] + a[1] + a[2];
+        ans = max(ans, 3 * a[0]);
+        ans = max(ans, 3 * a[2]);
+        ans = max(ans, 3 * abs(a[0] - a[1]));
+        ans = max(ans, 3 * abs(a[2] - a[1]));
+    }
+    else
+    {
+        ans = mx * n;
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -42,7 +72,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)
