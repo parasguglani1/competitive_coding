@@ -66,10 +66,10 @@ void pgsolve()
     // // ans *= a;
     // ans %= mod;
     // ans /= 6;
-    ans *= (n * (n + 1) * ((2 * n) + 1)) / 6;
-    ans %= mod;
+    // ans *= (n * (n + 1) * ((2 * n) + 1)) / 6;
+    // ans %= mod;
 
-    cout << ans << endl;
+    // cout << ans << endl;
     // cout<<endl;
     // int ans2 = 1;
     // ans2 *= (n - 1);
@@ -83,17 +83,27 @@ void pgsolve()
     // ans2 /= (3);
     // ans2 %= mod;
 
-    int ans2 = 1;
-    ans2 *= ((n - 1) * n * (n + 1)) / 3;
-    ans2 %= mod;
-    cout << ans2 << endl;
+    // int ans2 = 1;
+    // ans2 *= ((n - 1) * n * (n + 1)) / 3;
+    // summation can be reduced to n*(n+1)*(4n-1)/6
 
-    ans += ans2;
+    // ans2 %= mod;
+    // cout << ans2 << endl;
+
+    // ans += ans2;
+    // ans %= mod;
+
+    ans = n;
+    ans *= (n + 1) % mod;
+    ans %= mod;
+    ans *= (4 * n - 1) % mod;
+    ans %= mod;
+    ans *= 337;
     ans %= mod;
 
-    ans *= 2022;
+    // ans *= 2022;
     cout << ans % mod << endl;
-    cout << endl;
+    // cout << endl;
 }
 
 int32_t main()
