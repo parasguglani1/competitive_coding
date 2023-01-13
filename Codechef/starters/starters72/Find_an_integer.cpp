@@ -4,7 +4,7 @@ using namespace chrono;
 
 #define ff first
 #define ss second
-// #define int long long
+#define int long long
 using ll = long long;
 #define setbits(x) __builtin_popcountll(x)
 #define zrobits(x) __builtin_ctzll(x)
@@ -23,30 +23,29 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
 void pgsolve()
 {
-    // TODO
-    int n, m;
-    cin >> n >> m;
-    // vector<pair<int, int>> vpi;
-    vector<int> v;
-    rep(i, n)
-    {
-        int x;
-        cin >> x;
-        v.push_back(x);
-    }
-    sortall(v);
 
-    int sum = 0;
     
+    int x, y;
+    cin >> x >> y;
+    if (x == y)
+    {
+        cout << x << endl;
+        return;
+    }
 
-
+    int mn = min(x, y);
+    int mx = max(x, y);
+    if (mn == 1)
+    {
+        cout << mx - 1 << endl;
+        return;
+    }
+    int ans = (x - 1) * (y - 1) - 1;
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -58,7 +57,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)

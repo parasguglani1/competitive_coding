@@ -71,19 +71,22 @@ void pgsolve()
 
     } while (i < 32);
     // cout << location << endl;
-    // int add = pow(2, location);
-    int add = 1;
-    add <<= location-1;
+    int add = pow(2, location);
+    // cout<<add<<endl;
+    // int add = 1;
+    // add <<= location-1;
     int ans = n + add;
     //   if (ans <= n)
     {
-        cout << ans << endl;
+        // cout << ans << endl;
     }
     //   else
     //   {
     //       cout << -1 << endl;
     //   }
-    //todo
+    // todo
+    int ans2 = pow(2, 59) + pow(2, 60);
+    cout << ans2 << endl;
 }
 
 int32_t main()

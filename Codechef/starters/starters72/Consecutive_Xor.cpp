@@ -4,7 +4,7 @@ using namespace chrono;
 
 #define ff first
 #define ss second
-// #define int long long
+#define int long long
 using ll = long long;
 #define setbits(x) __builtin_popcountll(x)
 #define zrobits(x) __builtin_ctzll(x)
@@ -23,30 +23,47 @@ using ll = long long;
 #define REPR(i, k, n) for (int i = k; i > n; --i)
 #define pb push_back
 #define mp make_pair
-#define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
 void pgsolve()
 {
-    // TODO
-    int n, m;
-    cin >> n >> m;
-    // vector<pair<int, int>> vpi;
-    vector<int> v;
+    int n;
+    cin >> n;
+    bool zero = false;
+    int a[n];
+    int x = 0;
+    int sum = 0;
+    int set = 0;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        sum += a[i];
+        x ^= a[i];
+        set += setbits(a[i]);
+        if (a[i] == 0)
+        {
+            zero = true;
+        }
+    }
+    int temp = 0;
+
+    rep(i, n - 1)
+    {
+        temp = a[i] ^ x;
+        a[i] = a[i] ^ temp;
+        a[i + 1] ^= temp;
+    }
+    // cout << x << endl;
     rep(i, n)
     {
-        int x;
-        cin >> x;
-        v.push_back(x);
+        if (a[i] != x)
+        {
+            cout << "NO" << endl;
+            return;
+        }
     }
-    sortall(v);
 
-    int sum = 0;
-    
-
-
+    cout << "YES" << endl;
 }
 
 int32_t main()
@@ -58,7 +75,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
+    freopen("error.txt", "w", stderr);
 #endif
 
     w(t)
