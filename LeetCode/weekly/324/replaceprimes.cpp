@@ -1,5 +1,5 @@
 #define MAX 10000
-define ll long long
+#define ll long long
 #include <bits/stdc++.h>
 using namespace std;
 
