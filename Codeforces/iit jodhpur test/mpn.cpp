@@ -56,13 +56,19 @@ void manipulated_seive(int N)
     }
 } */
 
-const int N = 1000100;
+int a = 10;
+const int N = 1e6 + 5;
+// bool isPrime[N] = {0};
 vector<bool> isPrime(N, true);
-
 vector<int> primes;
 int sieve(int n)
 {
+
     int count = 0;
+    for (int i = 2; i < n + 1; i++)
+    {
+        isPrime[i] = true;
+    }
     isPrime[0] = isPrime[1] = false;
 
     for (int i = 2; i * i <= n; i++)
@@ -92,52 +98,24 @@ void pgsolve()
 
     int l, r;
     cin >> l >> r;
-    if (l + 1 >= r)
-    {
-        cout << 0 << endl;
-        return;
-    }
     int ans = 0;
     bool flag = true;
     int count = 0;
-    int lower = lower_bound(primes.begin(), primes.end(), l) - primes.begin();
+    /* int lower = lower_bound(primes.begin(), primes.end(), l) - primes.begin();
     int upper = lower_bound(primes.begin(), primes.end(), r) - primes.begin();
 
     // cout << lower << " " << upper << endl;
-    // cout << primes[lower] << " " << primes[upper] << endl;
+    cout << primes[lower] << " " << primes[upper] << endl;
     int mx = 0;
-    // if (primes[lower] > l)
-    // {
-    //     mx = primes[lower] - l;
-    // }
-    // if (lower == upper && (primes[lower] <= l || primes[lower] >= r))
-    // {
-    //     cout << r - l - 1 << endl;
-    //     return;
-    // }
     if (primes[lower] > l)
     {
-        // cout << "here" << endl;
-        mx = primes[lower] - l - 1;
-        // lower++;
+        mx = primes[lower] - l;
     }
-    // cout << mx << endl;
-    if (primes[upper] > r)
+    for (int i = lower; i < upper - 2; i++)
     {
-        // cout << "here" << endl;
-        mx = max(r - primes[upper - 1] - 1, mx);
-        upper--;
-    }
-    // cout << mx << endl;
-
-    for (int i = lower; i < upper; i++)
-    {
-        // cout << primes[i] << " " << primes[i + 1] << endl;
-        int temp = primes[i + 1] - primes[i] - 1;
-
+        int temp = primes[i + 1] - primes[i];
         mx = max(mx, temp);
     }
-    // mx = max(mx, r - primes[upper - 1] - 1);
     // if (primes[upper - 1] < r)
     // {
     //     mx = max(mx, r - primes[upper - 1]);
@@ -148,13 +126,13 @@ void pgsolve()
     // }
     // cout << endl;
 
-    cout << mx << endl;
+    cout << mx << endl; */
 
-    /* for (int i = l + 1; i < r; i++)
+    for (int i = l + 1; i < r; i++)
     {
         while (flag && i < r)
         {
-            flag = flag && !isprime[i];
+            flag = flag && !isPrime[i];
             if (flag)
             {
                 i++;
@@ -168,20 +146,19 @@ void pgsolve()
         count = 0;
         flag = true;
         ans = max(ans, count);
-    } */
+    }
     // for (int i = l; i <= r; i++)
     // {
     //     cout << isprime[i] << " ";
     // }
 
-    // cout << ans << endl;
+    cout << ans << endl;
     // cout << endl;
 }
 
 int32_t main()
 
 {
-
     sieve(N);
     ios_base::sync_with_stdio(0);
     cin.tie(0);
