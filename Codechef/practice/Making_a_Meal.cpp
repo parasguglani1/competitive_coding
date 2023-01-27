@@ -30,7 +30,27 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-//todo
+    int n;
+    cin >> n;
+    map<char, int> m;
+    rep(i, n)
+    {
+        string str;
+        cin >> str;
+
+        for (auto c : str)
+            m[c]++;
+    }
+    int mn = INT_MAX;
+    string s = "codechef";
+        m['c'] /= 2;
+        m['e'] /= 2;
+    for (auto c : s)
+    {
+
+        mn = min(mn, m[c]);
+    }
+    cout << mn << endl;
 }
 
 int32_t main()
@@ -42,7 +62,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

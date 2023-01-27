@@ -30,7 +30,69 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-//todo
+    int n, s, r;
+    cin >> n >> s >> r;
+    int mx = s - r;
+    // cout << mx << " ";
+    int a[n];
+    a[0] = mx;
+    // int k = ceil(r * 1.0 / (n - 1));
+    // if (k == 0)
+    // {
+    //     k = 1;
+    // }
+    // for (int i = 0; i < n - 2; i++)
+    // {
+    //     a[i + 1] = k;
+    //     // cout << k << " ";
+    // }
+    // a[n - 1] = r - (n - 2) * k;
+    // int temp = 0;
+    // if (a[n - 1] > mx)
+    // {
+    //     temp = a[n - 1] - mx;
+    //     a[n - 1] = mx;
+    //     return;
+    // }
+
+    // cout << r - (n - 2) * k << " ";
+    int sum = 0;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     // sum += a[i];
+    //     // cout << a[i] << " ";
+    // }
+
+    vector<int> ans(n - 1);
+    ans.pb(mx);
+    for (int i = 0; i < n - 1; i++)
+    {
+        ans[i] = 1;
+        r = r - 1;
+    }
+    int i = 0;
+    while (r != 0)
+    {
+        if (ans[i] < mx)
+        {
+            r--;
+            ans[i]++;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    for (int i = 0; i < ans.size(); i++)
+    {
+        cout << ans[i] << ' ';
+        sum += ans[i];
+    }
+    if (sum != s || ans.size() != n)
+    {
+        cout << "NO";
+    }
+    cout << endl;
 }
 
 int32_t main()
@@ -42,7 +104,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

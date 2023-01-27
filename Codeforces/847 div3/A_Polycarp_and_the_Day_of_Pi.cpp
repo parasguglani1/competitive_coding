@@ -28,21 +28,76 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
+
+int pi[31];
+
 void pgsolve()
 {
-//todo
+    int count = 0;
+    string str;
+    cin >> str;
+    int n = str.length();
+    // rep(i, n)
+    // {
+    //     str[i] -= '0';
+    // }
+    for (int i = 0; i < n; i++)
+    {
+        if (str[i] - '0' == pi[i])
+        {
+            count++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    cout << count << endl;
 }
 
 int32_t main()
 
 {
+
+    // store 30 digits of pi in pi array in one line
+    pi[0] = 3;
+    pi[1] = 1;
+    pi[2] = 4;
+    pi[3] = 1;
+    pi[4] = 5;
+    pi[5] = 9;
+    pi[6] = 2;
+    pi[7] = 6;
+    pi[8] = 5;
+    pi[9] = 3;
+    pi[10] = 5;
+    pi[11] = 8;
+    pi[12] = 9;
+    pi[13] = 7;
+    pi[14] = 9;
+    pi[15] = 3;
+    pi[16] = 2;
+    pi[17] = 3;
+    pi[18] = 8;
+    pi[19] = 4;
+    pi[20] = 6;
+    pi[21] = 2;
+    pi[22] = 6;
+    pi[23] = 4;
+    pi[24] = 3;
+    pi[25] = 3;
+    pi[26] = 8;
+    pi[27] = 3;
+    pi[28] = 2;
+    pi[29] = 7;
+    pi[30] = 9;
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

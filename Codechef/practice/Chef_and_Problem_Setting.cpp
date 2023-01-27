@@ -30,7 +30,51 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-//todo
+    int n, m;
+    cin >> n >> m;
+    bool invalid = false, weak = false;
+    rep(i, n)
+    {
+        string str;
+        cin >> str;
+        string s;
+        cin >> s;
+        int zerocount = 0;
+
+        rep(j, m)
+        {
+            if (str == "correct")
+            {
+                if (s[j] == '0')
+                {
+                    invalid = true;
+                }
+            }
+            else
+            {
+                if (s[j] == '0')
+                {
+                    zerocount++;
+                }
+            }
+        }
+        if (zerocount == 0 && str == "wrong")
+        {
+            weak = true;
+        }
+    }
+    if (invalid)
+    {
+        cout << "INVALID" << endl;
+    }
+    else if (weak)
+    {
+        cout << "WEAK" << endl;
+    }
+    else
+    {
+        cout << "FINE" << endl;
+    }
 }
 
 int32_t main()
@@ -42,7 +86,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

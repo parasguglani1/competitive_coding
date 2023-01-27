@@ -28,9 +28,56 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
+
+void compute(int S, int X)
+{
+    int A = (S - X) / 2;
+
+    int a = 0, b = 0;
+
+    // Traverse through all bits
+    for (int i = 0; i < 8 * sizeof(S); i++)
+    {
+        int Xi = (X & (1 << i));
+        int Ai = (A & (1 << i));
+        if (Xi == 0 && Ai == 0)
+        {
+            // Let us leave bits as 0.
+        }
+        else if (Xi == 0 && Ai > 0)
+        {
+            a = ((1 << i) | a);
+            b = ((1 << i) | b);
+        }
+        else if (Xi > 0 && Ai == 0)
+        {
+            a = ((1 << i) | a);
+
+            // We leave i-th bit of b as 0.
+        }
+        else // (Xi == 1 && Ai == 1)
+        {
+            cout << -1 << endl;
+            // cout << "Not Possible";
+            return;
+        }
+    }
+    if (a + b == S && a ^ b == X)
+    {
+        cout << a << " " << b << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
+    }
+}
+
 void pgsolve()
 {
-//todo
+    int x;
+    cin >> x;
+    int s = 2 * x;
+    compute(s, x);
 }
 
 int32_t main()
@@ -42,7 +89,7 @@ int32_t main()
     auto start1 = high_resolution_clock::now();
 
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
 
     w(t)

@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 using namespace chrono;
-
 #define ff first
 #define ss second
 #define int long long
@@ -30,21 +29,35 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-//todo
+    int n;
+    cin >> n;
+    vi a(n);
+
+    int res = 0;
+    rep(i, n) cin >> a[i];
+    multiset<int> dol(all(a));
+
+    while (dol.size() > 0)
+    {
+        int tmp = *dol.rbegin();
+        while (dol.count(tmp))
+        {
+            dol.erase(dol.find(tmp));
+            tmp--;
+        }
+        res++;
+    }
+    cout << res << endl;
 }
-
 int32_t main()
-
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     auto start1 = high_resolution_clock::now();
-
 #ifdef __GNUC__
-	freopen("Error.txt", "w", stderr);
+    freopen("Error.txt", "w", stderr);
 #endif
-
     w(t)
     {
         pgsolve();
