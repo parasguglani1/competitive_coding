@@ -2,7 +2,7 @@ g++ fastSolution.cpp -o fastSolution
 g++ bruteSolution.cpp -o bruteSolution
 g++ generator.cpp -o generator
 
-for((i = 5153; ; ++i)); do
+for((i = 1; ; ++i)); do
     ./generator $i > randomInput
     ./fastSolution <randomInput > myOutput
     ./bruteSolution <randomInput > bruteOutput
