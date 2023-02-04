@@ -1,59 +1,31 @@
-
-//unknown ques
-#include <iostream>
-#include <unordered_map>
+// Given two strings s and t, return the maximum number of times you can remove target word from s
+#include <bits/stdc++.h>
 using namespace std;
-
-int getSum(int arr[], int k, int n)
+int countMaximumOperations(string s, string t)
 {
-
-    unordered_map<int, int> hm;
-
-    int ans = 0;
-    int sum = 0;
-
-    for (int i = 0; i < k; i++)
+    map<char, int> mp1, mp2;
+    int n1 = s.size();
+    int n2 = t.size();
+    for (int i = 0; i < n1; i++)
     {
-        if (hm[arr[i]] == 0)
-        {
-            sum += arr[i];
-        }
-
-        hm[arr[i]] += 1;
+        mp1[s[i]]++;
     }
-
-    for (int i = k; i < n; i++)
+    for (int i = 0; i < n2; i++)
     {
-
-        if (hm[arr[i - k]] == 1)
-        {
-            sum -= arr[i - k];
-        }
-
-        hm[arr[i - k]] -= 1;
-
-        if (hm[arr[i]] == 0)
-        {
-            sum += arr[i];
-        }
-        hm[arr[i]] += 1;
-
-        ans = max(ans, sum);
+        mp2[t[i]]++;
     }
-    return ans;
+    int mn = INT_MAX;
+    for (auto it : mp2)
+    {
+        int result = mp1[it.first] / it.second;
+        mn = min(mn, result);
+    }
+    return mn;
 }
 
 int main()
 {
-    int N, K;
-    cin >> N >> K;
-    int arr[N];
-    for (int i = 0; i < N; i++)
-    {
-        cin >> arr[i];
-    }
-
-    cout << getSum(arr, K, N);
-
+    cout << countMaximumOperations("abacbc", "bca") << endl;
+    cout << countMaximumOperations("mononom", "mon") << endl;
     return 0;
 }
