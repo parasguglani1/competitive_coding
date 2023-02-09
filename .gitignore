@@ -4,6 +4,8 @@ check.cpp
 check.c
 check2.cpp
 check3.cpp
+optimized.cpp
+brute.cpp
 cph_check.cpp
 .error.txt
 _current
