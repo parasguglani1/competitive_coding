@@ -9,3 +9,6 @@ brute.cpp
 cph_check.cpp
 .error.txt
 _current
+generator.cpp
+stressTesting.sh
+stresstesting

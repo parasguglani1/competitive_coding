@@ -30,29 +30,21 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    if ((n & 1) == 0)
+    int n, k;
+    cin >> n >> k;
+    vi arr(n + 1);
+    REP(i, 1, n)
+        cin >> arr[i];
+    arr[n] = 1;
+    for (int cur = 1; cur <= n; cur += arr[cur])
     {
-        no return;
-    }
-    yes
-        vi vec(n);
-    rep(i, n)
-    {
-        vec[i] = i + 1;
-    }
-    rotate(vec.begin(), vec.begin() + n / 2, vec.end());
-    vector<pair<int, int>> vp(n);
-    rep(i, n)
-    {
-        vp[i] = {vec[i], n + i + 1};
-    }
-    sort(vp.begin(), vp.end());
-    rep(i, n)
-    {
-        cout << vp[i].ff << " " << vp[i].ss << endl;
-    }
+        if (cur == k)
+        {
+            yes return;
+        }
+    }   
+
+    cout << "NO" << endl;
 }
 
 int32_t main()
@@ -67,7 +59,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

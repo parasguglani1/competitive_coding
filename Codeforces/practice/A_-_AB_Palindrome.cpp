@@ -26,33 +26,31 @@ using ll = long long;
 #define sz(v) (int)v.size()
 #define pii pair<int, int>
 #define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
+#define yes cout << "Yes" << endl;
+#define no cout << "No" << endl;
 void pgsolve()
 {
     int n;
     cin >> n;
-    if ((n & 1) == 0)
+    string str;
+    cin >> str;
+    bool pali = true;
+    rep(i, n / 2)
+    {
+        if (str[i] != str[n - i - 1])
+        {
+            pali = false;
+        }
+    }
+    if (pali)
+    {
+        yes return;
+    }
+    if ((str[0] == 'A' && str[n - 1] == 'B') || str == "BA")
     {
         no return;
     }
-    yes
-        vi vec(n);
-    rep(i, n)
-    {
-        vec[i] = i + 1;
-    }
-    rotate(vec.begin(), vec.begin() + n / 2, vec.end());
-    vector<pair<int, int>> vp(n);
-    rep(i, n)
-    {
-        vp[i] = {vec[i], n + i + 1};
-    }
-    sort(vp.begin(), vp.end());
-    rep(i, n)
-    {
-        cout << vp[i].ff << " " << vp[i].ss << endl;
-    }
+    yes;
 }
 
 int32_t main()
@@ -67,7 +65,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

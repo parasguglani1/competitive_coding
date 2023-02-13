@@ -30,29 +30,30 @@ using ll = long long;
 #define no cout << "NO" << endl;
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    if ((n & 1) == 0)
+    string str;
+    cin >> str;
+    int cnt0 = 0, cnt1 = 0;
+
+    rep(i, str.length())
     {
-        no return;
+        if (str[i] == '0')
+        {
+            cnt0++;
+        }
+        else
+        {
+            cnt1++;
+        }
     }
-    yes
-        vi vec(n);
-    rep(i, n)
+    if (cnt0 == 1 || cnt1 == 1)
     {
-        vec[i] = i + 1;
+        yes
     }
-    rotate(vec.begin(), vec.begin() + n / 2, vec.end());
-    vector<pair<int, int>> vp(n);
-    rep(i, n)
+    else
     {
-        vp[i] = {vec[i], n + i + 1};
+        no
     }
-    sort(vp.begin(), vp.end());
-    rep(i, n)
-    {
-        cout << vp[i].ff << " " << vp[i].ss << endl;
-    }
+    // cout << cnt0 << " " << cnt1 << endl;
 }
 
 int32_t main()
