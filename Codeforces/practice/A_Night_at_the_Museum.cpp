@@ -6,7 +6,7 @@ int main()
     cin >> str;
     int n = str.size();
     int steps = 0;
-    char pointer = 'A';
+    char pointer = 'a';
     for (int i = 0; i < n; i++)
     {
         char go = str[i];
@@ -16,18 +16,18 @@ int main()
         }
         char temppointer = pointer;
 
-        int forward_distance =0;
+        int forward_distance = 0;
         while (go != temppointer)
         {
             temppointer++;
             forward_distance++;
 
-            if (temppointer == '[')
+            if (temppointer == '{')
             {
-                temppointer = 'A';
+                temppointer = 'a';
             }
         }
-         temppointer = pointer;
+        temppointer = pointer;
 
         int backward_distance = 0;
         while (go != temppointer)
@@ -35,9 +35,9 @@ int main()
             temppointer--;
             backward_distance++;
 
-            if (temppointer == '@')
+            if (temppointer == '`')
             {
-                temppointer = 'Z';
+                temppointer = 'z';
             }
         }
         // cout<<forward_distance<<" "<<backward_distance<<endl;
@@ -46,16 +46,6 @@ int main()
         pointer = go;
     }
     cout << steps << endl;
-    /*
-    short method
-    int n=s.length();
-    int ans=0,i;
-    char cur='a';
-    for (i = 0; i < n; ++i)
-    {
-        int diff = abs((int)(cur - s[i]));
-        ans += min(diff, 26 - diff);
-        cur = s[i];
-    } */
+
     return 0;
 }
