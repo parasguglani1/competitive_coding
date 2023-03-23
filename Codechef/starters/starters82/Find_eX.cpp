@@ -28,78 +28,19 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-
-int find(vector<int> &temp)
-{
-    int mn = INT_MAX;
-    for (int i = 1; i < temp.size(); ++i)
-    {
-        mn = min(mn, abs(temp[i] - temp[i - 1]));
-    }
-    return mn;
-}
 void pgsolve()
 {
-    int n;
-    cin >> n;
-    vi sorted(n);
-    rep(i, n)
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    int rem = a % b;
+    if (rem < min(b, d)-1)
     {
-        cin >> sorted[i];
-    }
-
-    vi revsorted = sorted;
-    sort(sorted.begin(), sorted.end());
-    sort(revsorted.begin(), revsorted.end(), greater<int>());
-    if (n == 2 || sorted[0] == sorted[n - 1])
-    {
-        cout << -1 << endl;
-        return;
-    }
-
-    int tmp = sorted[0];
-    vi leftcycle = sorted, rightcycle = sorted;
-
-    for (int i = 0; i < n - 1; i++)
-    {
-        leftcycle[i] = leftcycle[i + 1];
-    }
-    leftcycle[n - 1] = tmp;
-    int mn = INT_MAX;
-    mn = find(leftcycle);
-
-    if (leftcycle == sorted || leftcycle == revsorted)
-    {
-        mn = INT_MAX;
-    }
-
-    for (int i = n - 1; i > 0; i--)
-    {
-        rightcycle[i] = rightcycle[i - 1];
-    }
-    rightcycle[0] = sorted[n - 1];
-    int mn2 = find(rightcycle);
-
-    if (rightcycle == sorted || rightcycle == revsorted)
-    {
-        mn2 = INT_MAX;
-    }
-
-    if (mn2 < mn)
-    {
-        rep(i, n)
-        {
-            cout << rightcycle[i] << " ";
-        }
+        cout<<1<<endl;
     }
     else
     {
-        rep(i, n)
-        {
-            cout << leftcycle[i] << " ";
-        }
+        cout<<(b*d)/__gcd(b,d)-rem<<endl;
     }
-    cout << endl;
 }
 
 int32_t main()
