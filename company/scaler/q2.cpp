@@ -13,18 +13,22 @@ int solve(vector<int> &A, vector<int> &B);
 
 signed main()
 {
-    mee(dp, -1);
+    // mee(dp, -1);
     cin >> n;
     a.resize(n);
     b.resize(n);
 
     for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
+    }
 
     for (int i = 0; i < n; i++)
+    {
         cin >> b[i];
+    }
 
-    cout << solve(a, b);
+    cout << solve(a, b) << endl;
 }
 
 int getans(int ind, int bm)
@@ -55,6 +59,9 @@ int getans(int ind, int bm)
 int solve(vector<int> &A, vector<int> &B)
 
 {
+    a = A;
+    b = B;
+    n = A.size();
     mee(dp, -1);
     return getans(0, 0);
 }
