@@ -3,7 +3,7 @@
 using namespace std;
 
 #define mee(a, b) memset(a, b, sizeof a)
-
+//shuffle such that sum of ai^bi is minimum
 const int mx = 17;
 
 int dp[mx][1 << mx];
