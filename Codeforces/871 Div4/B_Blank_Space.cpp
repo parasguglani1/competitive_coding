@@ -28,10 +28,29 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+    rep(i, n)
+    {
+        cin >> a[i];
+    }
+    int cnt = 0, ans = 0;
+    rep(i, n)
+    {
+        if (a[i] == 0)
+        {
+            cnt++;
+            ans = max(cnt, ans);
+        }
+        else
+        {
+            cnt = 0;
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()

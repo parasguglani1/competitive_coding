@@ -32,6 +32,20 @@ vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    vi a(n);
+    rep(i, n) cin >> a[i];
+    int ans = 0;
+    rep(i, n - 1)
+    {
+        if (a[i] > a[i + 1])
+        {
+            ans += a[i] - a[i + 1];
+            a[i+1]=a[i];
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
@@ -46,7 +60,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

@@ -32,6 +32,42 @@ vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    vi a;
+    int sum = (n * (n + 1)) / 2;
+    if (sum % 2)
+    {
+        no return;
+    }
+    yes
+        sum /= 2;
+    map<int, int>
+        mp;
+    for (int i = n; i >= 1; i--)
+    {
+        if (i <= sum)   
+        {
+            a.pb(i);
+            mp[i] = 1;
+            sum -= i;
+        }
+    }
+    cout << a.size() << endl;
+    for (auto x : a)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
+    cout << n - a.size() << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        if (!mp[i])
+        {
+            cout << i << " ";
+        }
+    }
+    cout << endl;
 }
 
 int32_t main()
@@ -46,7 +82,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

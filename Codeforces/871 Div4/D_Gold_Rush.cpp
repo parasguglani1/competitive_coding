@@ -28,10 +28,36 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
+
+bool isPoss(int n, int m)
+{
+    if (n == m)
+    {
+        return true;
+    }
+    else if (n < m)
+    {
+        return false;
+    }
+    if (n % 3 == 0)
+    {
+        return (isPoss(n / 3, m) || isPoss(n - n / 3, m));
+    }
+    return false;
+}
 
 void pgsolve()
 {
+    int n, m;
+    cin >> n >> m;
+    if (isPoss(n, m))
+    {
+        yes
+    }
+    else
+    {
+        no
+    }
 }
 
 int32_t main()

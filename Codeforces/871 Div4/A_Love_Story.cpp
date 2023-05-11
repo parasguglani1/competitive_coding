@@ -28,10 +28,19 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
-vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-
 void pgsolve()
 {
+    int c = 0;
+    string str1, str2 = "codeforces";
+    cin >> str1;
+    rep(i, 10)
+    {
+        if (str1[i] != str2[i])
+        {
+            c++;
+        }
+    }
+    cout << c << endl;
 }
 
 int32_t main()

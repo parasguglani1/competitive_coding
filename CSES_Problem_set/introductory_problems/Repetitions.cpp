@@ -32,6 +32,23 @@ vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
 void pgsolve()
 {
+    string str;
+    cin >> str;
+    map<char, int> mp;
+    int ans = 0, cnt = 0;
+    for (int i = 1; i < str.size(); i++)
+    {
+        if (str[i - 1] == str[i])
+        {
+            cnt++;
+            ans=max(ans,cnt);
+        }
+        else
+        {
+            cnt = 0;
+        }
+    }
+    cout << ans+1 << endl;
 }
 
 int32_t main()
@@ -46,7 +63,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

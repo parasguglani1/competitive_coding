@@ -29,9 +29,24 @@ using ll = long long;
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-
+int binpow(int a, int b)
+{
+    int ans = 1;
+    while (b > 0)
+    {
+        if (b & 1)
+            ans = ((ans % mod) * a) % mod;
+        a = (a * a) % mod;
+        // b >>=  1;
+        b = b >> 1;
+    }
+    return ans % mod;
+}
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    cout << binpow(2, n) << endl;
 }
 
 int32_t main()
@@ -46,7 +61,7 @@ int32_t main()
     freopen("Error.txt", "w", stderr);
 #endif
 
-    w(t)
+    // w(t)
     {
         pgsolve();
     }

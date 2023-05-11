@@ -28,10 +28,56 @@ using ll = long long;
 #define vi vector<int>
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
+// DFS TEMPLATE
 vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-
+bool isValid(int i, int j, int n, int m)
+{
+    if (i < 0 || j < 0 || i >= n || j >= m)
+        return 0;
+    return 1;
+}
+void dfs(int i, int j, int &sum, vector<vector<int>> &graph, vector<vector<int>> &visited)
+{
+    int n = graph.size();
+    int m = graph[0].size();
+    visited[i][j] = 1;
+    sum += graph[i][j];
+    for (auto x : moves)
+    {
+        int nx = x.first + i;
+        int ny = x.second + j;
+        if (isValid(nx, ny, n, m) && graph[i][j] && !visited[nx][ny])
+            dfs(nx, ny, sum, graph, visited);
+    }
+}
 void pgsolve()
 {
+    int n, m;
+    cin >> n >> m;
+    vector<vector<int>> graph(n, vector<int>(m, 0)), visited(n, vector<int>(m, 0));
+    rep(i, n)
+    {
+        rep(j, m)
+        {
+            cin >> graph[i][j];
+            // cout << graph[i][j] << " ";
+        }
+        // cout << endl;
+    }
+    int ans = 0;
+    rep(i, n)
+    {
+        rep(j, m)
+        {
+            if (!visited[i][j] && graph[i][j] > 0)
+            {
+                int sum = 0;
+                dfs(i, j, sum, graph, visited);
+                ans = max(sum, ans);
+            }
+        }
+    }
+    cout << ans << endl;
 }
 
 int32_t main()
