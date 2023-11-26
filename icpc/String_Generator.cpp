@@ -1,108 +1,65 @@
 #include <bits/stdc++.h>
 using namespace std;
-using namespace chrono;
-
-#define ff first
-#define ss second
-#define int long long
-using ll = long long;
-#define setbits(x) __builtin_popcountll(x)
-#define zrobits(x) __builtin_ctzll(x)
-#define mod 1000000007
-#define inf 1e18
+#define fr(i, L, R) for (int i = L; i < R; i++)
+#define fb(i, L, R) for (int i = L; i > R; i--)
+#define ll long long int
+#define INF 1001001001
 #define PI 3.1415926535897932384626
-#define ps(x, y) fixed << setprecision(y) << x
-#define w(x)  \
-    int x;    \
-    cin >> x; \
-    while (x--)
 #define all(x) (x).begin(), (x).end()
-#define sortall(x) sort(all(x))
-#define rep(i, n) for (int i = 0; i < n; ++i)
-#define REP(i, k, n) for (int i = k; i < n; ++i)
-#define REPR(i, k, n) for (int i = k; i > n; --i)
+#define F first
+#define S second
 #define pb push_back
-#define mp make_pair
-#define sz(v) (int)v.size()
-#define pii pair<int, int>
-#define vi vector<int>
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
-vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-string m, s;
-// map<pair<string, int>, bool> dp;
-vector<pair<string, bool>> dp;
-bool ispossible(string &str, int ind)
+#define M 1000000007
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef pair<int, int> ii;
+typedef map<int, int> mpi;
+typedef map<int, vector<int>> mpvi;
+
+int solve(string &s1, string &s2, int k, int i, int j, vector<vector<int>> &dp)
 {
-    if (str == m)
-    {
-        // dp[{str, ind}] = true;
+    if (k == s1.length())
         return true;
-    }
-    if (ind >= s.size())
+    if (dp[i][j] != -1)
+        return dp[i][j];
+    if (s1[k] == s2[i] && s1[k] == s2[j])
     {
-        return false;
+        return dp[i][j] = solve(s1, s2, k + 1, i + 1, j, dp) | solve(s1, s2, k + 1, i, j - 1, dp);
     }
-    if (dp.find({str, ind}) != dp.end())
+    if (s1[k] == s2[i])
     {
-        // cout << str << ' ' << ind << endl;
-        return dp[{str, ind}];
+        return dp[i][j] = solve(s1, s2, k + 1, i + 1, j, dp);
     }
-    bool ans = false;
-    string end = str + s[ind];
-    string start = s[ind] + str;
-    ans = ans || ispossible(end, ind + 1);
-    ans = ans || ispossible(start, ind + 1);
-    dp[{str, ind}] = ans;
-    return ans;
-}
-void pgsolve()
-{
-    dp.clear();
-    int n;
-    cin >> n;
-    string ss, mm;
-    cin >> ss >> mm;
-    m = mm;
-    s = ss;
-    string curr = "";
-    dp.resize(n + 1);
-    bool ans = ispossible(curr, 0);
-    if (ans)
+    if (s1[k] == s2[j])
     {
-        cout << "YES" << endl;
+        return dp[i][j] = solve(s1, s2, k + 1, i, j - 1, dp);
     }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    return false;
 }
 
-int32_t main()
-
+int main()
 {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    cout.tie(0);
-    auto start1 = high_resolution_clock::now();
-
-#ifdef __GNUC__
-    freopen("Error.txt", "w", stderr);
-#endif
-
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int t;
     cin >> t;
-    int temp = t;
-    while (t--)
-    // w(t)
+
+    for (int c = 1; c <= t; ++c)
     {
-        cout << "Case " << temp - t << ": ";
-        pgsolve();
+        int n;
+        cin >> n;
+        string s1, s2;
+        cin >> s1 >> s2;
+        reverse(all(s1));
+        vector<vector<int>> dp(s1.length(), vector<int>(s2.length(), -1));
+        if (solve(s1, s2, 0, 0, s1.length() - 1, dp))
+        {
+            cout << "Case " << c << ": "
+                 << "YES\n";
+        }
+        else
+            cout << "Case " << c << ": "
+                 << "NO\n";
     }
-    auto stop1 = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop1 - start1);
-#ifdef __GNUC__
-    cerr << "\n Time: " << duration.count() / 1000 << " ms" << endl;
-#endif
     return 0;
 }
