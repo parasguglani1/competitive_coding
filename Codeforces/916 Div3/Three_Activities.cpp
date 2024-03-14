@@ -29,90 +29,127 @@ using ll = long long;
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
-int getMaxIndNotequal(vector<int> &a, int n, int ind1 = -1, int ind2 = -1)
-{
-    int mx = -1;
-    int maxind = -1;
-    for (int i = 0; i < n; i++)
-    {
-        if (i != ind1 && i != ind2)
-        {
-            if (a[i] > mx)
-            {
-                maxind = i;
-                mx = a[i];
-            }
-        }
-    }
-    return maxind;
-}
+// int getMaxIndNotequal(vector<int> &a, int n, int ind1 = -1, int ind2 = -1)
+// {
+//     int mx = -1;
+//     int maxind = -1;
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (i != ind1 && i != ind2)
+//         {
+//             if (a[i] > mx)
+//             {
+//                 maxind = i;
+//                 mx = a[i];
+//             }
+//         }
+//     }
+//     return maxind;
+// }
 void pgsolve()
 {
     int n;
     cin >> n;
     int ans = 0;
-    vector<int> a(n), b(n), c(n);
+    vector<pair<int, int>> a(n), b(n), c(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
+        cin >> a[i].first;
+        a[i].second = i;
     }
     for (int j = 0; j < n; j++)
     {
-        cin >> b[j];
+        cin >> b[j].first;
+        b[j].second = j;
     }
     for (int k = 0; k < n; k++)
     {
-        cin >> c[k];
+        cin >> c[k].first;
+        c[k].second = k;
     }
+
+    vector<pair<int, int>> aa, bb, cc;
+
+    sort(a.begin(), a.end(), greater<pair<int, int>>());
+    sort(b.begin(), b.end(), greater<pair<int, int>>());
+    sort(c.begin(), c.end(), greater<pair<int, int>>());
+
+    for (int i = 0; i < 3; i++)
+    {
+        aa.push_back(a[i]);
+        bb.push_back(b[i]);
+        cc.push_back(c[i]);
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        int x = aa[i].first;
+        int indx = aa[i].second;
+        for (int j = 0; j < 3; j++)
+        {
+            int y = bb[j].first;
+            int indy = bb[j].second;
+            for (int k = 0; k < 3; k++)
+            {
+                int z = cc[k].first;
+                int indz = cc[k].second;
+                if (indx != indy && indy != indz && indz != indx)
+                {
+                    ans = max(ans, x + y + z);
+                }
+            }
+        }
+    }
+
     // pick maxfroma
-    int maxindfroma = getMaxIndNotequal(a, n);
-    int maxindfromb = getMaxIndNotequal(b, n, maxindfroma);
-    int maxindfromc = getMaxIndNotequal(c, n, maxindfroma, maxindfromb);
+    // int maxindfroma = getMaxIndNotequal(a, n);
+    // int maxindfromb = getMaxIndNotequal(b, n, maxindfroma);
+    // int maxindfromc = getMaxIndNotequal(c, n, maxindfroma, maxindfromb);
 
-    int possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
-    // cout << possibleans << endl;
-    ans = max(ans, possibleans);
-    // pick secondmaxfromc
-    maxindfromc = getMaxIndNotequal(c, n, maxindfroma);
-    maxindfromb = getMaxIndNotequal(b, n, maxindfroma, maxindfromc);
+    // int possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // // cout << possibleans << endl;
+    // ans = max(ans, possibleans);
+    // // pick secondmaxfromc
+    // maxindfromc = getMaxIndNotequal(c, n, maxindfroma);
+    // maxindfromb = getMaxIndNotequal(b, n, maxindfroma, maxindfromc);
 
-    possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
 
-    ans = max(ans, possibleans);
+    // ans = max(ans, possibleans);
 
-    // pick maxfromb
-    maxindfromb = getMaxIndNotequal(b, n);
-    maxindfroma = getMaxIndNotequal(a, n, maxindfromb);
-    maxindfromc = getMaxIndNotequal(c, n, maxindfroma, maxindfromb);
+    // // pick maxfromb
+    // maxindfromb = getMaxIndNotequal(b, n);
+    // maxindfroma = getMaxIndNotequal(a, n, maxindfromb);
+    // maxindfromc = getMaxIndNotequal(c, n, maxindfroma, maxindfromb);
 
-    possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
 
-    ans = max(ans, possibleans);
+    // ans = max(ans, possibleans);
 
-    // pick secondmaxfromc
-    maxindfromc = getMaxIndNotequal(c, n, maxindfromb);
-    maxindfroma = getMaxIndNotequal(a, n, maxindfromb, maxindfromc);
+    // // pick secondmaxfromc
+    // maxindfromc = getMaxIndNotequal(c, n, maxindfromb);
+    // maxindfroma = getMaxIndNotequal(a, n, maxindfromb, maxindfromc);
 
-    possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
-    // cout << possibleans << endl;
+    // possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // // cout << possibleans << endl;
 
-    ans = max(ans, possibleans);
+    // ans = max(ans, possibleans);
 
-    // pick maxfromc
-    maxindfromc = getMaxIndNotequal(c, n);
-    maxindfroma = getMaxIndNotequal(a, n, maxindfromc);
-    maxindfromb = getMaxIndNotequal(b, n, maxindfroma, maxindfromc);
+    // // pick maxfromc
+    // maxindfromc = getMaxIndNotequal(c, n);
+    // maxindfroma = getMaxIndNotequal(a, n, maxindfromc);
+    // maxindfromb = getMaxIndNotequal(b, n, maxindfroma, maxindfromc);
 
-    possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
-    ans = max(ans, possibleans);
+    // possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // ans = max(ans, possibleans);
 
-    // pick secondmaxfromb
-    maxindfromb = getMaxIndNotequal(b, n, maxindfromc);
-    maxindfroma = getMaxIndNotequal(a, n, maxindfromb, maxindfromc);
+    // // pick secondmaxfromb
+    // maxindfromb = getMaxIndNotequal(b, n, maxindfromc);
+    // maxindfroma = getMaxIndNotequal(a, n, maxindfromb, maxindfromc);
 
-    possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
+    // possibleans = a[maxindfroma] + b[maxindfromb] + c[maxindfromc];
 
-    ans = max(ans, possibleans);
+    // ans = max(ans, possibleans);
 
     cout << ans << endl;
 }
