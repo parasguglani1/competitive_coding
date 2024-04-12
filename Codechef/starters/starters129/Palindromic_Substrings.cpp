@@ -32,6 +32,51 @@ vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
 void pgsolve()
 {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+
+    int diff = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i] == '0')
+        {
+            diff++;
+        }
+        else
+        {
+            diff--;
+        }
+    }
+    if (n == 1)
+    {
+        cout << "Bob" << endl;
+        return;
+    }
+    diff = abs(diff);
+    if (n % 2)
+    {
+        if (diff > 1)
+        {
+            cout << "Bob"<<endl;
+        }
+        else
+        {
+            cout << "Alice" << endl;
+        }
+    }
+    else
+    {
+        if (diff > 1)
+        {
+            cout << "Alice" << endl;
+        }
+        else
+        {
+            cout << "Bob" << endl;
+        }
+    }
 }
 
 int32_t main()

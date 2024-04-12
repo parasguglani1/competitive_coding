@@ -32,6 +32,43 @@ vector<pair<int, int>> moves = {{0, 1}, {1, 0}, {-1, 0}, {0, -1}};
 
 void pgsolve()
 {
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> p(m), q(m);
+    for (int i = 0; i < m; i++)
+    {
+        cin >> p[i];
+    }
+    for (int i = 0; i < m; i++)
+    {
+        cin >> q[i];
+    }
+
+    vector<int> a(2 * (n + 1), 0);
+    for (int i = 0; i < m; i++)
+    {
+        if (p[i] > q[i])
+        {
+            q[i] += n;
+        }
+        a[p[i]]++;
+        // cout << a[p[i]] << endl;
+        a[q[i] + 1]--;
+    }
+    for (int i = 1; i < 2 * (n + 1); i++)
+    {
+        a[i] += a[i - 1];
+    }
+    for (int i = 0; i <= n; i++)
+    {
+        a[i] += a[i + n];
+    }
+    cout<<*max_element(a.begin(),a.begin()+n)<<endl;
+    // for (int i = 0; i <= n; i++)
+    // {
+    //     cout << a[i] << " ";
+    // }
 }
 
 int32_t main()
